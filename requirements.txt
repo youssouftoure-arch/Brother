@@ -1,0 +1,19 @@
+# Scraping / Browser
+playwright
+openai
+
+# Dati / Excel
+pandas
+openpyxl
+
+# GUI
+customtkinter
+
+# Validazione / Settings
+pydantic
+pydantic-settings
+ddddocr
+
+# Testing
+pytest
+pytest-playwright
