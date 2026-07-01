@@ -119,6 +119,33 @@ class MasterOrchestrator:
             "message": "L'automazione è ripartita.",
         })
 
+    def _double_check_cache(self, scrape_errors: list) -> list:
+        """
+        Double-check pre-report (Fase 3):
+        Scorre la lista delle anomalie di scraping e verifica se il PDF
+        è effettivamente presente in cache per ognuna di esse.
+
+        - Se il PDF esiste ma l'errore era classificato come 'Errore Download':
+          → aggiorna TIPO_ERRORE a 'Successo con esitazione di navigazione'
+          → aggiorna DOCUMENTO_IN_CACHE a 'Sì'
+        - Gli errori di parsing (senza _CHIAVE_INTERNA) sono lasciati invariati.
+        - Rimuove la chiave interna di servizio _CHIAVE_INTERNA prima di restituire.
+        """
+        risultato = []
+        for err in scrape_errors:
+            chiave = err.pop("_CHIAVE_INTERNA", None)
+            if chiave and self.cache.is_cached(chiave):
+                tipo_originale = err.get("TIPO_ERRORE", "")
+                if "Errore Download" in tipo_originale:
+                    logger.warning(
+                        f"   🔄 [Double-Check] PDF trovato in cache per '{chiave}'. "
+                        f"Stato aggiornato: '{tipo_originale}' → 'Successo con esitazione di navigazione'."
+                    )
+                    err["TIPO_ERRORE"] = "Successo con esitazione di navigazione"
+                    err["DOCUMENTO_IN_CACHE"] = "Sì"
+            risultato.append(err)
+        return risultato
+
     def run(self):
         """Punto di ingresso principale del workflow."""
         logger.info("=== [FASE 1] CARICAMENTO DATI LOCALI ===")
@@ -187,7 +214,10 @@ class MasterOrchestrator:
                 logger.error(f"Errore durante lo smistamento finale delle cartelle: {ex}")
 
             try:
-                generate_report(parsing_errors, self.scrape_errors, self.original_headers)
+                # Double-check pre-report: rimuove/aggiorna le anomalie
+                # per cui il PDF è presente fisicamente in cache
+                scrape_errors_filtrati = self._double_check_cache(self.scrape_errors)
+                generate_report(parsing_errors, scrape_errors_filtrati, self.original_headers)
             except Exception as rep_err:
                 logger.error(f"Errore durante la generazione del report excel: {rep_err}")
 
@@ -318,6 +348,8 @@ class MasterOrchestrator:
                         self.scrape_errors.append(err_dict)
                     continue
 
+                # ── BLOCCO A: Fase critica — Ricerca sul portale + Download PDF ─────────
+                pdf_scaricato = False
                 try:
                     if job.tipo == "NCT":
                         NavigatoreSister.search_nct(page_reale, job.comune, prov_list[0], job.foglio, job.particella)
@@ -325,54 +357,123 @@ class MasterOrchestrator:
                         NavigatoreSister.search_ncf(page_reale, job.comune, prov_list[0], job.foglio, job.particella, job.sub or "")
 
                     self.cache.save_pdf(job.chiave, page_reale)
+                    pdf_scaricato = True
                     self.downloaded_jobs += 1
                     self.processed_jobs += 1
-                    logger.info("Visura scaricata ed inserita in cache.")
+                    logger.info("✅ Visura scaricata ed inserita in cache.")
                     self._send_progress()
 
-                    NavigatoreSister.torna_al_form(page_reale, self.url_ufficio_catastale)
-                    fallimenti_consecutivi = 0
-                    contatore_lotto_reale += 1
-                    self._attendi_pausa_mimetica(page_reale)
-
-                except Exception as e:
-                    logger.error(f"Anomalia riscontrata sul record: {e}")
-                    self.error_count += 1
+                except Exception as e_download:
                     self.processed_jobs += 1
-                    
-                    matching_rows = [r for r in self.valid_rows if r.chiave == job.chiave]
-                    if matching_rows:
-                        for r in matching_rows:
-                            err_dict = {
-                                "TIPO_ERRORE": str(e),
-                                "RIGA_EXCEL": r.riga_excel,
-                            }
-                            if isinstance(r.dati_originali, dict):
-                                err_dict.update(r.dati_originali)
-                            self.scrape_errors.append(err_dict)
+                    # Verifica reale: il PDF è in cache nonostante l'eccezione?
+                    if self.cache.is_cached(job.chiave):
+                        # Il file era già stato salvato prima del crash: non è un errore reale
+                        pdf_scaricato = True
+                        self.downloaded_jobs += 1
+                        logger.warning(
+                            f"   ⚠️ Eccezione durante il download, ma il PDF è già presente in cache. "
+                            f"Job trattato come successo. Dettaglio: {e_download}"
+                        )
+                        self._send_progress()
                     else:
-                        err_dict = {
-                            "TIPO_ERRORE": str(e),
-                            "RIGA_EXCEL": job.riga_excel or "N/D",
-                        }
-                        if job.download_job and isinstance(job.download_job.dati_originali, dict):
-                            err_dict.update(job.download_job.dati_originali)
-                        self.scrape_errors.append(err_dict)
-                    self._send_progress()
+                        # Fallimento reale confermato: il documento non è stato scaricato
+                        logger.error(f"   ❌ Errore di Download reale sul record [{job.chiave}]: {e_download}")
+                        self.error_count += 1
+                        matching_rows = [r for r in self.valid_rows if r.chiave == job.chiave]
+                        if matching_rows:
+                            for r in matching_rows:
+                                err_dict = {
+                                    "TIPO_ERRORE": f"Errore Download: {e_download}",
+                                    "RIGA_EXCEL": r.riga_excel,
+                                    "_CHIAVE_INTERNA": job.chiave,
+                                    "DOCUMENTO_IN_CACHE": "No",
+                                }
+                                if isinstance(r.dati_originali, dict):
+                                    err_dict.update(r.dati_originali)
+                                    # Ripristina i campi di controllo dopo l'update
+                                    err_dict["TIPO_ERRORE"] = f"Errore Download: {e_download}"
+                                    err_dict["_CHIAVE_INTERNA"] = job.chiave
+                                    err_dict["DOCUMENTO_IN_CACHE"] = "No"
+                                self.scrape_errors.append(err_dict)
+                        else:
+                            err_dict = {
+                                "TIPO_ERRORE": f"Errore Download: {e_download}",
+                                "RIGA_EXCEL": job.riga_excel or "N/D",
+                                "_CHIAVE_INTERNA": job.chiave,
+                                "DOCUMENTO_IN_CACHE": "No",
+                            }
+                            if job.download_job and isinstance(job.download_job.dati_originali, dict):
+                                err_dict.update(job.download_job.dati_originali)
+                                err_dict["TIPO_ERRORE"] = f"Errore Download: {e_download}"
+                                err_dict["_CHIAVE_INTERNA"] = job.chiave
+                                err_dict["DOCUMENTO_IN_CACHE"] = "No"
+                            self.scrape_errors.append(err_dict)
+                        self._send_progress()
 
+                # ── BLOCCO B: Fase non critica — Ripristino sessione + Pausa mimetica ───
+                if pdf_scaricato or self.cache.is_cached(job.chiave):
+                    # Il PDF è confermato in cache: il ripristino non è più un'operazione critica
+                    try:
+                        NavigatoreSister.torna_al_form(page_reale, self.url_ufficio_catastale)
+                        fallimenti_consecutivi = 0
+                        contatore_lotto_reale += 1
+                        self._attendi_pausa_mimetica(page_reale)
+                    except Exception as e_nav:
+                        logger.error(
+                            f"   ⚠️ Errore di Navigazione / Ripristino Sessione (PDF già salvato): {e_nav}"
+                        )
+                        # Il documento è in cache: NON è 'Documento mancante'
+                        matching_rows = [r for r in self.valid_rows if r.chiave == job.chiave]
+                        if matching_rows:
+                            for r in matching_rows:
+                                err_dict = {
+                                    "TIPO_ERRORE": "Errore di Navigazione / Ripristino Sessione",
+                                    "RIGA_EXCEL": r.riga_excel,
+                                    "_CHIAVE_INTERNA": job.chiave,
+                                    "DOCUMENTO_IN_CACHE": "Sì",
+                                }
+                                if isinstance(r.dati_originali, dict):
+                                    err_dict.update(r.dati_originali)
+                                    err_dict["TIPO_ERRORE"] = "Errore di Navigazione / Ripristino Sessione"
+                                    err_dict["_CHIAVE_INTERNA"] = job.chiave
+                                    err_dict["DOCUMENTO_IN_CACHE"] = "Sì"
+                                self.scrape_errors.append(err_dict)
+                        else:
+                            err_dict = {
+                                "TIPO_ERRORE": "Errore di Navigazione / Ripristino Sessione",
+                                "RIGA_EXCEL": job.riga_excel or "N/D",
+                                "_CHIAVE_INTERNA": job.chiave,
+                                "DOCUMENTO_IN_CACHE": "Sì",
+                            }
+                            if job.download_job and isinstance(job.download_job.dati_originali, dict):
+                                err_dict.update(job.download_job.dati_originali)
+                                err_dict["TIPO_ERRORE"] = "Errore di Navigazione / Ripristino Sessione"
+                                err_dict["_CHIAVE_INTERNA"] = job.chiave
+                                err_dict["DOCUMENTO_IN_CACHE"] = "Sì"
+                            self.scrape_errors.append(err_dict)
+                        fallimenti_consecutivi += 1
+                        contatore_lotto_reale += 1
+                        try:
+                            self._attendi_pausa_mimetica(page_reale)
+                        except Exception:
+                            pass
+                else:
+                    # Download fallito: tentativo di ripristino silenzioso, senza aggiungere ulteriori errori
                     try:
                         NavigatoreSister.torna_al_form(page_reale, self.url_ufficio_catastale)
                         fallimenti_consecutivi = 0
                     except Exception as reset_error:
-                        logger.error(f"Impossibile ripristinare il modulo: {reset_error}")
+                        logger.error(f"   Impossibile ripristinare il modulo dopo download fallito: {reset_error}")
                         fallimenti_consecutivi += 1
-
                     contatore_lotto_reale += 1
-                    self._attendi_pausa_mimetica(page_reale)
+                    try:
+                        self._attendi_pausa_mimetica(page_reale)
+                    except Exception:
+                        pass
 
-                    if fallimenti_consecutivi >= 4:
-                        logger.critical("Rilevati 4 disallineamenti strutturali consecutivi del browser!")
-                        raise RuntimeError("Interruzione preventiva di sicurezza: browser de-sincronizzato.")
+                if fallimenti_consecutivi >= 4:
+                    logger.critical("Rilevati 4 disallineamenti strutturali consecutivi del browser!")
+                    raise RuntimeError("Interruzione preventiva di sicurezza: browser de-sincronizzato.")
 
             # [FASE 2.4] ATTESA TIMERIZZATA PER COSTRUIRE I DOCUMENTI CATASTALI ASINCRONI
             print("\n" + "⏳" * 30)

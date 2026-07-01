@@ -1,4 +1,6 @@
 # scraper/browser_manager.py — Gestione del ciclo di vita del browser con blocco anti-crash ed evasioni anti-bot
+import os
+
 from playwright.sync_api import sync_playwright, BrowserContext, Page
 from config.settings import Settings
 
@@ -9,12 +11,16 @@ class BrowserManager:
         self.context: BrowserContext = None
         self.current_page: Page = None
 
+    @staticmethod
+    def _ensure_storage_state_file() -> None:
+        path_state = str(Settings.STATE_FILE)
+        os.makedirs(os.path.dirname(path_state), exist_ok=True)
+        if not os.path.exists(path_state):
+            with open(path_state, "w", encoding="utf-8") as state_file:
+                state_file.write("{}")
+
     def __enter__(self) -> "BrowserManager":
-        if not Settings.STATE_FILE.exists():
-            raise FileNotFoundError(
-                f"state.json non trovato in {Settings.STATE_FILE}. "
-                "Esegui prima il login manuale tramite l'interfaccia di sblocco."
-            )
+        self._ensure_storage_state_file()
         self._pw = sync_playwright().start()
 
         # 🎯 SCUDO STEALTH 1: Lancio di Chromium con flag di mascheramento nativi

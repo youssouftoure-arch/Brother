@@ -58,7 +58,13 @@ class Settings:
     OUTPUT_DIR: Path = DATA_DIR / "output_tree"
     ISTAT_CSV: Path = Path("utils/Elenco-comuni-italiani.csv")
     STATE_FILE: Path = BASE_DIR / "scraper" / "state" / "state.json"
-    LOG_FILE: Path = BASE_DIR / "logs" / "sister.log"  # Spostato dentro la cartella /logs dedicata
+    # Re-routing dinamico dei log nella cartella roaming utente (Windows: %APPDATA%)
+    # Evita problemi di permessi quando l'applicazione è pacchettizzata in un .exe
+    _appdata = os.getenv("APPDATA")
+    if _appdata:
+        LOG_FILE: Path = Path(_appdata) / "StramBot" / "logs" / "orchestrator.log"
+    else:
+        LOG_FILE: Path = BASE_DIR / "logs" / "sister.log"
     EXCEPTIONS_FILE: Path = OUTPUT_DIR / "eccezioni_report.xlsx"
 
     # =========================================================================

@@ -20544,3 +20544,1032 @@ INFO     | 2026-07-01 10:58:18,829 | Reporters    |    📊 Riepilogo anomalie -
 INFO     | 2026-07-01 10:58:18,834 | Orchestrator | ============================================================
 INFO     | 2026-07-01 10:58:19,080 | Orchestrator |          Workflow terminato. Risorse salvate e consolidate!
 INFO     | 2026-07-01 10:58:19,087 | Orchestrator | ============================================================
+INFO     | 2026-07-01 13:09:35,740 | Orchestrator | === [FASE 1] CARICAMENTO DATI LOCALI ===
+INFO     | 2026-07-01 13:09:35,962 | Orchestrator | Righe valide: 416 | Job unici da elaborare: 121
+INFO     | 2026-07-01 13:09:35,963 | Orchestrator | === [FASE 2] AVVIO AUTOMAZIONE SISTER ===
+INFO     | 2026-07-01 13:10:33,840 | Orchestrator |  Finestra corretta agganciata: https://sister3.agenziaentrate.gov.it/Visure/SceltaLink.do?lista=IMM&codUfficio=LI
+INFO     | 2026-07-01 13:10:33,847 | Orchestrator | [1/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1145_NCT
+INFO     | 2026-07-01 13:10:33,850 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,858 | Orchestrator | [2/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1148_NCT
+INFO     | 2026-07-01 13:10:33,861 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,873 | Orchestrator | [3/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_259_AA_NCT
+INFO     | 2026-07-01 13:10:33,875 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,886 | Orchestrator | [4/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_259_AB_NCT
+INFO     | 2026-07-01 13:10:33,889 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,908 | Orchestrator | [5/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_262_NCT
+INFO     | 2026-07-01 13:10:33,921 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,924 | Orchestrator | [6/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1151_NCT
+INFO     | 2026-07-01 13:10:33,926 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,931 | Orchestrator | [7/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1154_NCT
+INFO     | 2026-07-01 13:10:33,934 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,936 | Orchestrator | [8/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1157_NCT
+INFO     | 2026-07-01 13:10:33,940 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,942 | Orchestrator | [9/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1160_NCT
+INFO     | 2026-07-01 13:10:33,945 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,948 | Orchestrator | [10/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1165_NCT
+INFO     | 2026-07-01 13:10:33,951 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,953 | Orchestrator | [11/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_712_NCT
+INFO     | 2026-07-01 13:10:33,957 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,962 | Orchestrator | [12/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_713_NCT
+INFO     | 2026-07-01 13:10:33,970 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,984 | Orchestrator | [13/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_707_NCT
+INFO     | 2026-07-01 13:10:33,989 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:33,992 | Orchestrator | [14/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_710_AA_NCT
+INFO     | 2026-07-01 13:10:33,998 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,004 | Orchestrator | [15/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_710_AB_NCT
+INFO     | 2026-07-01 13:10:34,045 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,047 | Orchestrator | [16/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_796_NCT
+INFO     | 2026-07-01 13:10:34,050 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,053 | Orchestrator | [17/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_782_NCT
+INFO     | 2026-07-01 13:10:34,054 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,056 | Orchestrator | [18/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_59_NCT
+INFO     | 2026-07-01 13:10:34,105 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,108 | Orchestrator | [19/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_720_NCT
+INFO     | 2026-07-01 13:10:34,111 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,117 | Orchestrator | [20/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_722_NCT
+INFO     | 2026-07-01 13:10:34,122 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,124 | Orchestrator | [21/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_723_NCT
+INFO     | 2026-07-01 13:10:34,126 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,128 | Orchestrator | [22/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_719_NCT
+INFO     | 2026-07-01 13:10:34,132 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,135 | Orchestrator | [23/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_124_NCT
+INFO     | 2026-07-01 13:10:34,137 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,139 | Orchestrator | [24/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_68_NCT
+INFO     | 2026-07-01 13:10:34,141 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,142 | Orchestrator | [25/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_87_NCT
+INFO     | 2026-07-01 13:10:34,144 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,147 | Orchestrator | [26/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_86_AA_NCT
+INFO     | 2026-07-01 13:10:34,152 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,154 | Orchestrator | [27/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_86_AB_NCT
+INFO     | 2026-07-01 13:10:34,156 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,157 | Orchestrator | [28/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_765_601_NCF
+INFO     | 2026-07-01 13:10:34,160 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,163 | Orchestrator | [29/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_606_AA_NCT
+INFO     | 2026-07-01 13:10:34,167 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,169 | Orchestrator | [30/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_606_AB_NCT
+INFO     | 2026-07-01 13:10:34,172 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,173 | Orchestrator | [31/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_62_NCT
+INFO     | 2026-07-01 13:10:34,176 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,178 | Orchestrator | [32/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_4_605_NCF
+INFO     | 2026-07-01 13:10:34,183 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,185 | Orchestrator | [33/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_17_NCT
+INFO     | 2026-07-01 13:10:34,188 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,190 | Orchestrator | [34/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_59_NCT
+INFO     | 2026-07-01 13:10:34,191 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,193 | Orchestrator | [35/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_47_602_NCF
+INFO     | 2026-07-01 13:10:34,196 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,200 | Orchestrator | [36/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_22_NCT
+INFO     | 2026-07-01 13:10:34,204 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,206 | Orchestrator | [37/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_11_NCT
+INFO     | 2026-07-01 13:10:34,208 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,209 | Orchestrator | [38/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_46_602_NCF
+INFO     | 2026-07-01 13:10:34,212 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,217 | Orchestrator | [39/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_51_NCT
+INFO     | 2026-07-01 13:10:34,226 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,231 | Orchestrator | [40/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_13_AA_NCT
+INFO     | 2026-07-01 13:10:34,240 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,252 | Orchestrator | [41/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_13_AB_NCT
+INFO     | 2026-07-01 13:10:34,308 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,310 | Orchestrator | [42/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_6_NCT
+INFO     | 2026-07-01 13:10:34,312 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,316 | Orchestrator | [43/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_10_AA_NCT
+INFO     | 2026-07-01 13:10:34,324 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,326 | Orchestrator | [44/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_10_AB_NCT
+INFO     | 2026-07-01 13:10:34,329 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,331 | Orchestrator | [45/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_9_NCT
+INFO     | 2026-07-01 13:10:34,333 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,554 | Orchestrator | [46/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_44_NCT
+INFO     | 2026-07-01 13:10:34,565 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,573 | Orchestrator | [47/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_11_AA_NCT
+INFO     | 2026-07-01 13:10:34,588 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:10:34,594 | Orchestrator | [48/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_11_AB_NCT
+INFO     | 2026-07-01 13:10:34,696 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:10:34,778 | SisterClient |    -> Cambio comune rilevato. Imposto: ROSIGNANO MARITTIMO...
+INFO     | 2026-07-01 13:10:45,225 | SisterClient |    ⏳ Pausa riflessiva di 1.95s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:10:52,565 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 92 PART 11 -> Tentativo: 'biscote'
+INFO     | 2026-07-01 13:10:53,797 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:10:53,797 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_92_11_AB_NCT
+INFO     | 2026-07-01 13:10:53,812 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:10:57,894 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:10:58,420 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:10:58,423 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:10:59,968 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:11:02,742 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:11:05,513 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:11:05,514 | Orchestrator |    ⏳ Pausa mimetica: attendo 6.41 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:11:11,941 | Orchestrator | [49/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_11_AC_NCT
+INFO     | 2026-07-01 13:11:11,943 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:11:11,950 | Orchestrator | [50/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_39_NCT
+INFO     | 2026-07-01 13:11:11,956 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:11:11,964 | Orchestrator | [51/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_154_NCT
+INFO     | 2026-07-01 13:11:11,973 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:11:12,004 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:11:19,479 | SisterClient |    ⏳ Pausa riflessiva di 1.83s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:11:24,077 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 98 PART 154 -> Tentativo: 'sapinera'
+INFO     | 2026-07-01 13:11:25,497 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:11:25,498 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_98_154_NCT
+INFO     | 2026-07-01 13:11:25,503 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:11:30,082 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:11:30,354 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:11:30,355 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:11:32,035 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:11:34,953 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:11:37,761 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:11:37,762 | Orchestrator |    ⏳ Pausa mimetica: attendo 3.80 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:11:41,575 | Orchestrator | [52/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_153_NCT
+INFO     | 2026-07-01 13:11:41,576 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:11:41,581 | Orchestrator | [53/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_8_AA_NCT
+INFO     | 2026-07-01 13:11:41,591 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:11:41,592 | Orchestrator | [54/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_8_AB_NCT
+INFO     | 2026-07-01 13:11:41,595 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:11:41,597 | Orchestrator | [55/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_40_NCT
+INFO     | 2026-07-01 13:11:41,603 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:11:41,604 | Orchestrator | [56/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_161_NCT
+INFO     | 2026-07-01 13:11:41,617 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:11:41,650 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:11:49,542 | SisterClient |    ⏳ Pausa riflessiva di 1.55s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:11:53,887 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 98 PART 161 -> Tentativo: 'lucirte'
+INFO     | 2026-07-01 13:11:55,065 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:11:55,065 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_98_161_NCT
+INFO     | 2026-07-01 13:11:55,074 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:11:59,293 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:11:59,588 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:11:59,589 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:12:01,131 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:12:04,027 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:12:06,811 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:12:06,811 | Orchestrator |    ⏳ Pausa mimetica: attendo 6.34 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:12:13,159 | Orchestrator | [57/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_163_NCT
+INFO     | 2026-07-01 13:12:13,165 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:12:13,197 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:12:20,405 | SisterClient |    ⏳ Pausa riflessiva di 1.73s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:12:23,216 | SisterClient |    🚀 [MASTER BYPASS] Pagina senza captcha rilevata! Applico un'esitazione dinamica di sicurezza...
+INFO     | 2026-07-01 13:12:25,710 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:12:25,710 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_98_163_NCT
+INFO     | 2026-07-01 13:12:25,720 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:12:29,820 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:12:30,055 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:12:30,055 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:12:31,627 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:12:34,349 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:12:37,131 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:12:37,132 | Orchestrator |    ⏳ Pausa mimetica: attendo 8.75 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:12:45,891 | Orchestrator | [58/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_85_NCT
+INFO     | 2026-07-01 13:12:45,894 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:12:45,900 | Orchestrator | [59/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_86_NCT
+INFO     | 2026-07-01 13:12:45,906 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:12:45,938 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:12:53,670 | SisterClient |    ⏳ Pausa riflessiva di 1.68s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:12:57,438 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 98 PART 86 -> Tentativo: 'togdne'
+WARNING  | 2026-07-01 13:12:58,387 | SisterClient |    ⚠️ Tentativo [1/2] fallito (Codice errato). Sister ha rigenerato l'immagine.
+INFO     | 2026-07-01 13:13:00,306 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 98 PART 86 -> Tentativo: 'fesbruno'
+INFO     | 2026-07-01 13:13:01,511 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [2/2]!
+INFO     | 2026-07-01 13:13:01,512 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_98_86_NCT
+INFO     | 2026-07-01 13:13:01,521 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:13:05,588 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:13:05,916 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:13:05,916 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:13:07,451 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:13:10,172 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:13:12,980 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:13:12,981 | Orchestrator |    ⏳ Pausa mimetica: attendo 5.40 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:13:18,398 | Orchestrator | [60/121] Elaborazione chiave: ROSIGNANO MARITTIMO_102_300_NCT
+INFO     | 2026-07-01 13:13:18,400 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:13:18,407 | Orchestrator | [61/121] Elaborazione chiave: ROSIGNANO MARITTIMO_102_301_NCT
+INFO     | 2026-07-01 13:13:18,416 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:13:18,421 | Orchestrator | [62/121] Elaborazione chiave: ROSIGNANO MARITTIMO_102_350_NCF
+INFO     | 2026-07-01 13:13:18,427 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:13:18,428 | Orchestrator | [63/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_79_NCF
+INFO     | 2026-07-01 13:13:18,430 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:13:18,432 | Orchestrator | [64/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_81_NCT
+INFO     | 2026-07-01 13:13:18,437 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:13:18,441 | Orchestrator | [65/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_13_AA_NCT
+INFO     | 2026-07-01 13:13:18,449 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:13:18,450 | Orchestrator | [66/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_13_AB_NCT
+INFO     | 2026-07-01 13:13:18,455 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:13:18,455 | Orchestrator | [67/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_16_NCT
+INFO     | 2026-07-01 13:13:18,466 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:13:18,494 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:13:25,823 | SisterClient |    ⏳ Pausa riflessiva di 2.14s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:13:30,869 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 98 PART 16 -> Tentativo: 'mupodata'
+INFO     | 2026-07-01 13:13:32,030 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:13:32,030 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_98_16_NCT
+INFO     | 2026-07-01 13:13:32,040 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:13:36,186 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:13:36,444 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:13:36,446 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:13:37,970 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:13:40,695 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:13:52,903 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:13:52,904 | Orchestrator |    ⏳ Pausa mimetica: attendo 4.89 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:13:57,808 | Orchestrator | [68/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_4_AA_NCT
+INFO     | 2026-07-01 13:13:57,815 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:13:57,844 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:14:04,524 | SisterClient |    ⏳ Pausa riflessiva di 1.76s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:14:09,154 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 98 PART 4 -> Tentativo: 'folumbo'
+INFO     | 2026-07-01 13:14:10,278 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:14:10,279 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_98_4_AA_NCT
+INFO     | 2026-07-01 13:14:10,289 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:14:14,865 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:14:15,091 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:14:15,092 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:14:16,619 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:14:19,377 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:14:22,280 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:14:22,281 | Orchestrator |    ⏳ Pausa mimetica: attendo 6.79 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:14:29,097 | Orchestrator | [69/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_4_AB_NCT
+INFO     | 2026-07-01 13:14:29,109 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:14:29,110 | Orchestrator | [70/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_171_NCT
+INFO     | 2026-07-01 13:14:29,117 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:14:29,122 | Orchestrator | [71/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_29_AA_NCT
+INFO     | 2026-07-01 13:14:29,133 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:14:29,161 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:14:36,194 | SisterClient |    ⏳ Pausa riflessiva di 1.67s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:14:39,008 | SisterClient |    🚀 [MASTER BYPASS] Pagina senza captcha rilevata! Applico un'esitazione dinamica di sicurezza...
+INFO     | 2026-07-01 13:14:41,629 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:14:41,629 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_98_29_AA_NCT
+INFO     | 2026-07-01 13:14:41,638 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:14:46,236 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:14:46,507 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:14:46,508 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:14:48,032 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:14:50,848 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:14:53,611 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:14:53,612 | Orchestrator |    ⏳ Pausa mimetica: attendo 7.11 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:15:00,742 | Orchestrator | [72/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_29_AB_NCT
+INFO     | 2026-07-01 13:15:00,754 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:00,754 | Orchestrator | [73/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_142_AA_NCT
+INFO     | 2026-07-01 13:15:00,759 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:00,765 | Orchestrator | [74/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_142_AB_NCT
+INFO     | 2026-07-01 13:15:00,767 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:00,772 | Orchestrator | [75/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_31_AA_NCT
+INFO     | 2026-07-01 13:15:00,780 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:00,780 | Orchestrator | [76/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_31_AB_NCT
+INFO     | 2026-07-01 13:15:00,786 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:00,791 | Orchestrator | [77/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_144_NCT
+INFO     | 2026-07-01 13:15:00,798 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:00,799 | Orchestrator | [78/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_32_NCT
+INFO     | 2026-07-01 13:15:00,805 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:00,809 | Orchestrator | [79/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_114_NCT
+INFO     | 2026-07-01 13:15:00,818 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:00,823 | Orchestrator | [80/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_146_NCT
+INFO     | 2026-07-01 13:15:00,829 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:00,830 | Orchestrator | [81/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_583_NCT
+INFO     | 2026-07-01 13:15:00,837 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:15:00,867 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:15:09,109 | SisterClient |    ⏳ Pausa riflessiva di 1.98s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:15:14,112 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 86 PART 583 -> Tentativo: 'portisace'
+WARNING  | 2026-07-01 13:15:15,113 | SisterClient |    ⚠️ Tentativo [1/2] fallito (Codice errato). Sister ha rigenerato l'immagine.
+INFO     | 2026-07-01 13:15:16,554 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 86 PART 583 -> Tentativo: 'sirane'
+INFO     | 2026-07-01 13:15:17,813 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [2/2]!
+INFO     | 2026-07-01 13:15:17,813 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_86_583_NCT
+INFO     | 2026-07-01 13:15:17,823 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:15:21,956 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:15:22,333 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:15:22,334 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:15:23,867 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:15:26,604 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:15:29,634 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:15:29,634 | Orchestrator |    ⏳ Pausa mimetica: attendo 6.94 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:15:36,592 | Orchestrator | [82/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1138_NCT
+INFO     | 2026-07-01 13:15:36,593 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:36,600 | Orchestrator | [83/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_25_602_NCF
+INFO     | 2026-07-01 13:15:36,602 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:36,609 | Orchestrator | [84/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_118_NCT
+INFO     | 2026-07-01 13:15:36,612 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:15:36,619 | Orchestrator | [85/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_168_NCT
+INFO     | 2026-07-01 13:15:36,628 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:15:36,658 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:15:44,816 | SisterClient |    ⏳ Pausa riflessiva di 2.12s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:15:53,250 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 98 PART 168 -> Tentativo: 'furvilo'
+INFO     | 2026-07-01 13:15:54,393 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:15:54,394 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_98_168_NCT
+INFO     | 2026-07-01 13:15:54,403 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:15:58,523 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:15:58,777 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:15:58,778 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:16:00,334 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+WARNING  | 2026-07-01 13:16:02,966 | SisterClient |    -> [Passo 2] Nessun bottone rilevato. Eseguo go_back() nativo...
+WARNING  | 2026-07-01 13:16:05,654 | SisterClient |    🚨 Stato instabile o frame distaccati. Eseguo l'Hard Reset della sessione...
+WARNING  | 2026-07-01 13:16:08,371 | SisterClient |    🚨 Reset locale fallito. ESEGUO HARD RESET SULL'UFFICIO DI LIVORNO...
+WARNING  | 2026-07-01 13:16:12,132 | SisterClient |    -> Tentativo estremo su url_iniziale...
+ERROR    | 2026-07-01 13:16:15,359 | Orchestrator |    ⚠️ Errore di Navigazione / Ripristino Sessione (PDF già salvato): Impossibile ritornare alla maschera principale. Struttura della pagina compromessa.
+INFO     | 2026-07-01 13:16:15,365 | Orchestrator |    ⏳ Pausa mimetica: attendo 1.91 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:16:17,292 | Orchestrator | [86/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1143_NCF
+INFO     | 2026-07-01 13:16:17,294 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:16:17,303 | Orchestrator | [87/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_673_NCF
+INFO     | 2026-07-01 13:16:17,311 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:16:17,313 | Orchestrator | [88/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_540_NCF
+ERROR    | 2026-07-01 13:16:22,362 | Orchestrator |    ❌ Errore di Download reale sul record [ROSIGNANO MARITTIMO_86_540_NCF]: Impossibile agganciare la maschera nei frame per l'iniezione dei parametri (Timeout rendering struttura).
+INFO     | 2026-07-01 13:16:22,363 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+WARNING  | 2026-07-01 13:16:23,886 | SisterClient |    -> [Passo 1] Nessun bottone rilevato. Eseguo go_back() nativo...
+WARNING  | 2026-07-01 13:16:26,510 | SisterClient |    -> [Passo 2] Nessun bottone rilevato. Eseguo go_back() nativo...
+WARNING  | 2026-07-01 13:16:29,210 | SisterClient |    🚨 Stato instabile o frame distaccati. Eseguo l'Hard Reset della sessione...
+WARNING  | 2026-07-01 13:16:31,910 | SisterClient |    🚨 Reset locale fallito. ESEGUO HARD RESET SULL'UFFICIO DI LIVORNO...
+WARNING  | 2026-07-01 13:16:35,625 | SisterClient |    -> Tentativo estremo su url_iniziale...
+ERROR    | 2026-07-01 13:16:38,873 | Orchestrator |    Impossibile ripristinare il modulo dopo download fallito: Impossibile ritornare alla maschera principale. Struttura della pagina compromessa.
+INFO     | 2026-07-01 13:16:38,873 | Orchestrator |    ⏳ Pausa mimetica: attendo 4.07 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:16:42,958 | Orchestrator | [89/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_49_NCT
+INFO     | 2026-07-01 13:16:42,960 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:16:42,963 | Orchestrator | [90/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_35_NCT
+INFO     | 2026-07-01 13:16:42,970 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:16:42,975 | Orchestrator | [91/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_543_NCT
+INFO     | 2026-07-01 13:16:42,978 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:16:42,980 | Orchestrator | [92/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_581_NCT
+INFO     | 2026-07-01 13:16:42,982 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:16:42,987 | Orchestrator | [93/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_591_NCF
+INFO     | 2026-07-01 13:16:42,988 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:16:42,993 | Orchestrator | [94/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_589_AB_NCT
+ERROR    | 2026-07-01 13:16:48,038 | Orchestrator |    ❌ Errore di Download reale sul record [ROSIGNANO MARITTIMO_86_589_AB_NCT]: Impossibile agganciare la maschera nei frame per l'iniezione dei parametri (Timeout rendering struttura).
+INFO     | 2026-07-01 13:16:48,039 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+WARNING  | 2026-07-01 13:16:49,555 | SisterClient |    -> [Passo 1] Nessun bottone rilevato. Eseguo go_back() nativo...
+WARNING  | 2026-07-01 13:16:52,210 | SisterClient |    -> [Passo 2] Nessun bottone rilevato. Eseguo go_back() nativo...
+WARNING  | 2026-07-01 13:16:54,890 | SisterClient |    🚨 Stato instabile o frame distaccati. Eseguo l'Hard Reset della sessione...
+WARNING  | 2026-07-01 13:16:57,609 | SisterClient |    🚨 Reset locale fallito. ESEGUO HARD RESET SULL'UFFICIO DI LIVORNO...
+WARNING  | 2026-07-01 13:17:01,355 | SisterClient |    -> Tentativo estremo su url_iniziale...
+ERROR    | 2026-07-01 13:17:04,526 | Orchestrator |    Impossibile ripristinare il modulo dopo download fallito: Impossibile ritornare alla maschera principale. Struttura della pagina compromessa.
+INFO     | 2026-07-01 13:17:04,526 | Orchestrator |    ⏳ Pausa mimetica: attendo 6.15 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:17:10,692 | Orchestrator | [95/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_594_NCF
+ERROR    | 2026-07-01 13:17:15,738 | Orchestrator |    ❌ Errore di Download reale sul record [ROSIGNANO MARITTIMO_86_594_NCF]: Impossibile agganciare la maschera nei frame per l'iniezione dei parametri (Timeout rendering struttura).
+INFO     | 2026-07-01 13:17:15,740 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+WARNING  | 2026-07-01 13:17:17,271 | SisterClient |    -> [Passo 1] Nessun bottone rilevato. Eseguo go_back() nativo...
+WARNING  | 2026-07-01 13:17:19,931 | SisterClient |    -> [Passo 2] Nessun bottone rilevato. Eseguo go_back() nativo...
+WARNING  | 2026-07-01 13:17:22,627 | SisterClient |    🚨 Stato instabile o frame distaccati. Eseguo l'Hard Reset della sessione...
+WARNING  | 2026-07-01 13:17:25,482 | SisterClient |    🚨 Reset locale fallito. ESEGUO HARD RESET SULL'UFFICIO DI LIVORNO...
+WARNING  | 2026-07-01 13:17:29,196 | SisterClient |    -> Tentativo estremo su url_iniziale...
+ERROR    | 2026-07-01 13:17:32,395 | Orchestrator |    Impossibile ripristinare il modulo dopo download fallito: Impossibile ritornare alla maschera principale. Struttura della pagina compromessa.
+INFO     | 2026-07-01 13:17:32,395 | Orchestrator |    ⏳ Pausa mimetica: attendo 1.97 secondi prima del prossimo record...
+CRITICAL | 2026-07-01 13:17:34,378 | Orchestrator | Rilevati 4 disallineamenti strutturali consecutivi del browser!
+INFO     | 2026-07-01 13:32:54,531 | Orchestrator | === [FASE 1] CARICAMENTO DATI LOCALI ===
+INFO     | 2026-07-01 13:32:54,797 | Orchestrator | Righe valide: 416 | Job unici da elaborare: 121
+INFO     | 2026-07-01 13:32:54,798 | Orchestrator | === [FASE 2] AVVIO AUTOMAZIONE SISTER ===
+INFO     | 2026-07-01 13:33:21,765 | Orchestrator |  Finestra corretta agganciata: https://sister3.agenziaentrate.gov.it/Visure/SceltaLink.do?lista=IMM&codUfficio=LI
+INFO     | 2026-07-01 13:33:21,767 | Orchestrator | [1/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1145_NCT
+INFO     | 2026-07-01 13:33:21,773 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,775 | Orchestrator | [2/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1148_NCT
+INFO     | 2026-07-01 13:33:21,776 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,777 | Orchestrator | [3/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_259_AA_NCT
+INFO     | 2026-07-01 13:33:21,781 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,784 | Orchestrator | [4/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_259_AB_NCT
+INFO     | 2026-07-01 13:33:21,788 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,788 | Orchestrator | [5/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_262_NCT
+INFO     | 2026-07-01 13:33:21,790 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,793 | Orchestrator | [6/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1151_NCT
+INFO     | 2026-07-01 13:33:21,795 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,796 | Orchestrator | [7/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1154_NCT
+INFO     | 2026-07-01 13:33:21,798 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,799 | Orchestrator | [8/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1157_NCT
+INFO     | 2026-07-01 13:33:21,801 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,802 | Orchestrator | [9/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1160_NCT
+INFO     | 2026-07-01 13:33:21,806 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,806 | Orchestrator | [10/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1165_NCT
+INFO     | 2026-07-01 13:33:21,808 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,812 | Orchestrator | [11/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_712_NCT
+INFO     | 2026-07-01 13:33:21,818 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,822 | Orchestrator | [12/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_713_NCT
+INFO     | 2026-07-01 13:33:21,827 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,828 | Orchestrator | [13/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_707_NCT
+INFO     | 2026-07-01 13:33:21,830 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,831 | Orchestrator | [14/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_710_AA_NCT
+INFO     | 2026-07-01 13:33:21,835 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,839 | Orchestrator | [15/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_710_AB_NCT
+INFO     | 2026-07-01 13:33:21,843 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,843 | Orchestrator | [16/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_796_NCT
+INFO     | 2026-07-01 13:33:21,846 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,847 | Orchestrator | [17/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_782_NCT
+INFO     | 2026-07-01 13:33:21,851 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,855 | Orchestrator | [18/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_59_NCT
+INFO     | 2026-07-01 13:33:21,859 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,865 | Orchestrator | [19/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_720_NCT
+INFO     | 2026-07-01 13:33:21,869 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,872 | Orchestrator | [20/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_722_NCT
+INFO     | 2026-07-01 13:33:21,876 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,877 | Orchestrator | [21/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_723_NCT
+INFO     | 2026-07-01 13:33:21,883 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,886 | Orchestrator | [22/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_719_NCT
+INFO     | 2026-07-01 13:33:21,890 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,891 | Orchestrator | [23/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_124_NCT
+INFO     | 2026-07-01 13:33:21,896 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,897 | Orchestrator | [24/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_68_NCT
+INFO     | 2026-07-01 13:33:21,902 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,905 | Orchestrator | [25/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_87_NCT
+INFO     | 2026-07-01 13:33:21,910 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,911 | Orchestrator | [26/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_86_AA_NCT
+INFO     | 2026-07-01 13:33:21,913 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,939 | Orchestrator | [27/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_86_AB_NCT
+INFO     | 2026-07-01 13:33:21,940 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,954 | Orchestrator | [28/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_765_601_NCF
+INFO     | 2026-07-01 13:33:21,959 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,960 | Orchestrator | [29/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_606_AA_NCT
+INFO     | 2026-07-01 13:33:21,963 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,964 | Orchestrator | [30/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_606_AB_NCT
+INFO     | 2026-07-01 13:33:21,966 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,966 | Orchestrator | [31/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_62_NCT
+INFO     | 2026-07-01 13:33:21,971 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,971 | Orchestrator | [32/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_4_605_NCF
+INFO     | 2026-07-01 13:33:21,973 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,974 | Orchestrator | [33/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_17_NCT
+INFO     | 2026-07-01 13:33:21,975 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,976 | Orchestrator | [34/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_59_NCT
+INFO     | 2026-07-01 13:33:21,979 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,980 | Orchestrator | [35/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_47_602_NCF
+INFO     | 2026-07-01 13:33:21,982 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,982 | Orchestrator | [36/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_22_NCT
+INFO     | 2026-07-01 13:33:21,987 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:21,991 | Orchestrator | [37/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_11_NCT
+INFO     | 2026-07-01 13:33:21,998 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,001 | Orchestrator | [38/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_46_602_NCF
+INFO     | 2026-07-01 13:33:22,006 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,006 | Orchestrator | [39/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_51_NCT
+INFO     | 2026-07-01 13:33:22,008 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,009 | Orchestrator | [40/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_13_AA_NCT
+INFO     | 2026-07-01 13:33:22,010 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,011 | Orchestrator | [41/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_13_AB_NCT
+INFO     | 2026-07-01 13:33:22,014 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,018 | Orchestrator | [42/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_6_NCT
+INFO     | 2026-07-01 13:33:22,019 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,023 | Orchestrator | [43/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_10_AA_NCT
+INFO     | 2026-07-01 13:33:22,028 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,029 | Orchestrator | [44/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_10_AB_NCT
+INFO     | 2026-07-01 13:33:22,032 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,036 | Orchestrator | [45/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_9_NCT
+INFO     | 2026-07-01 13:33:22,041 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,046 | Orchestrator | [46/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_44_NCT
+INFO     | 2026-07-01 13:33:22,051 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,056 | Orchestrator | [47/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_11_AA_NCT
+INFO     | 2026-07-01 13:33:22,060 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,061 | Orchestrator | [48/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_11_AB_NCT
+INFO     | 2026-07-01 13:33:22,064 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,065 | Orchestrator | [49/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_11_AC_NCT
+INFO     | 2026-07-01 13:33:22,069 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,073 | Orchestrator | [50/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_39_NCT
+INFO     | 2026-07-01 13:33:22,078 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,080 | Orchestrator | [51/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_154_NCT
+INFO     | 2026-07-01 13:33:22,082 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,083 | Orchestrator | [52/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_153_NCT
+INFO     | 2026-07-01 13:33:22,085 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,089 | Orchestrator | [53/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_8_AA_NCT
+INFO     | 2026-07-01 13:33:22,093 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,094 | Orchestrator | [54/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_8_AB_NCT
+INFO     | 2026-07-01 13:33:22,096 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,097 | Orchestrator | [55/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_40_NCT
+INFO     | 2026-07-01 13:33:22,099 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,102 | Orchestrator | [56/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_161_NCT
+INFO     | 2026-07-01 13:33:22,104 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,109 | Orchestrator | [57/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_163_NCT
+INFO     | 2026-07-01 13:33:22,112 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,113 | Orchestrator | [58/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_85_NCT
+INFO     | 2026-07-01 13:33:22,115 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,115 | Orchestrator | [59/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_86_NCT
+INFO     | 2026-07-01 13:33:22,120 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,124 | Orchestrator | [60/121] Elaborazione chiave: ROSIGNANO MARITTIMO_102_300_NCT
+INFO     | 2026-07-01 13:33:22,131 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,132 | Orchestrator | [61/121] Elaborazione chiave: ROSIGNANO MARITTIMO_102_301_NCT
+INFO     | 2026-07-01 13:33:22,134 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,136 | Orchestrator | [62/121] Elaborazione chiave: ROSIGNANO MARITTIMO_102_350_NCF
+INFO     | 2026-07-01 13:33:22,138 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,176 | Orchestrator | [63/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_79_NCF
+INFO     | 2026-07-01 13:33:22,178 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,184 | Orchestrator | [64/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_81_NCT
+INFO     | 2026-07-01 13:33:22,189 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,189 | Orchestrator | [65/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_13_AA_NCT
+INFO     | 2026-07-01 13:33:22,194 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,196 | Orchestrator | [66/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_13_AB_NCT
+INFO     | 2026-07-01 13:33:22,197 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,198 | Orchestrator | [67/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_16_NCT
+INFO     | 2026-07-01 13:33:22,200 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,201 | Orchestrator | [68/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_4_AA_NCT
+INFO     | 2026-07-01 13:33:22,205 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,206 | Orchestrator | [69/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_4_AB_NCT
+INFO     | 2026-07-01 13:33:22,210 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,212 | Orchestrator | [70/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_171_NCT
+INFO     | 2026-07-01 13:33:22,217 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,221 | Orchestrator | [71/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_29_AA_NCT
+INFO     | 2026-07-01 13:33:22,226 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,231 | Orchestrator | [72/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_29_AB_NCT
+INFO     | 2026-07-01 13:33:22,235 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,239 | Orchestrator | [73/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_142_AA_NCT
+INFO     | 2026-07-01 13:33:22,243 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,244 | Orchestrator | [74/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_142_AB_NCT
+INFO     | 2026-07-01 13:33:22,247 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,247 | Orchestrator | [75/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_31_AA_NCT
+INFO     | 2026-07-01 13:33:22,252 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,256 | Orchestrator | [76/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_31_AB_NCT
+INFO     | 2026-07-01 13:33:22,260 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,261 | Orchestrator | [77/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_144_NCT
+INFO     | 2026-07-01 13:33:22,263 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,267 | Orchestrator | [78/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_32_NCT
+INFO     | 2026-07-01 13:33:22,272 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,275 | Orchestrator | [79/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_114_NCT
+INFO     | 2026-07-01 13:33:22,282 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,286 | Orchestrator | [80/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_146_NCT
+INFO     | 2026-07-01 13:33:22,290 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,294 | Orchestrator | [81/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_583_NCT
+INFO     | 2026-07-01 13:33:22,296 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,298 | Orchestrator | [82/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1138_NCT
+INFO     | 2026-07-01 13:33:22,302 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,305 | Orchestrator | [83/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_25_602_NCF
+INFO     | 2026-07-01 13:33:22,310 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,311 | Orchestrator | [84/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_118_NCT
+INFO     | 2026-07-01 13:33:22,314 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,315 | Orchestrator | [85/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_168_NCT
+INFO     | 2026-07-01 13:33:22,316 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,317 | Orchestrator | [86/121] Elaborazione chiave: ROSIGNANO MARITTIMO_81_1143_NCF
+INFO     | 2026-07-01 13:33:22,322 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,323 | Orchestrator | [87/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_673_NCF
+INFO     | 2026-07-01 13:33:22,324 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:33:22,330 | Orchestrator | [88/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_540_NCF
+INFO     | 2026-07-01 13:33:22,367 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:33:23,445 | SisterClient |    -> Cambio comune rilevato. Imposto: ROSIGNANO MARITTIMO...
+INFO     | 2026-07-01 13:33:34,387 | SisterClient |    ⏳ Pausa riflessiva di 2.02s prima dell'invio (NCF)...
+INFO     | 2026-07-01 13:33:40,151 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 86 PART 540 -> Tentativo: 'egolaliva'
+WARNING  | 2026-07-01 13:33:41,177 | SisterClient |    ⚠️ Tentativo [1/2] fallito (Codice errato). Sister ha rigenerato l'immagine.
+INFO     | 2026-07-01 13:33:43,012 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 86 PART 540 -> Tentativo: 'sdemarge'
+INFO     | 2026-07-01 13:33:44,077 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [2/2]!
+INFO     | 2026-07-01 13:33:44,078 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_86_540_NCF
+INFO     | 2026-07-01 13:33:44,091 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+ERROR    | 2026-07-01 13:34:04,123 | CacheManager | ❌ Il tasto PDF non è apparso entro 20 secondi. Sister è in sovraccarico critico.
+ERROR    | 2026-07-01 13:34:04,124 | Orchestrator |    ❌ Errore di Download reale sul record [ROSIGNANO MARITTIMO_86_540_NCF]: Impossibile completare il download del PDF (Documentazione non disponibile o schermata imprevista). Dettaglio: Locator.wait_for: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator("input[type='submit'][name='metodo'][value='Salva']") to be visible
+
+INFO     | 2026-07-01 13:34:04,130 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:34:05,653 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:34:08,439 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:34:11,207 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:34:11,208 | Orchestrator |    ⏳ Pausa mimetica: attendo 2.15 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:34:13,374 | Orchestrator | [89/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_49_NCT
+INFO     | 2026-07-01 13:34:13,376 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:34:13,381 | Orchestrator | [90/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_35_NCT
+INFO     | 2026-07-01 13:34:13,387 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:34:13,389 | Orchestrator | [91/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_543_NCT
+INFO     | 2026-07-01 13:34:13,394 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:34:13,399 | Orchestrator | [92/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_581_NCT
+INFO     | 2026-07-01 13:34:13,404 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:34:13,408 | Orchestrator | [93/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_591_NCF
+INFO     | 2026-07-01 13:34:13,414 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:34:13,414 | Orchestrator | [94/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_589_AB_NCT
+INFO     | 2026-07-01 13:34:13,422 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:34:14,470 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:34:22,811 | SisterClient |    ⏳ Pausa riflessiva di 1.67s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:34:25,093 | SisterClient |    🚀 [MASTER BYPASS] Pagina senza captcha rilevata! Applico un'esitazione dinamica di sicurezza...
+INFO     | 2026-07-01 13:34:27,595 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:34:27,596 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_86_589_AB_NCT
+INFO     | 2026-07-01 13:34:27,604 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:34:31,661 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:34:32,062 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:34:32,062 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:34:33,604 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:34:36,759 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:34:39,517 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:34:39,518 | Orchestrator |    ⏳ Pausa mimetica: attendo 2.23 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:34:41,760 | Orchestrator | [95/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_594_NCF
+INFO     | 2026-07-01 13:34:41,767 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:34:42,823 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:34:50,276 | SisterClient |    ⏳ Pausa riflessiva di 2.03s prima dell'invio (NCF)...
+INFO     | 2026-07-01 13:34:54,657 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 86 PART 594 -> Tentativo: 'zefubbbre'
+WARNING  | 2026-07-01 13:34:55,634 | SisterClient |    ⚠️ Tentativo [1/2] fallito (Codice errato). Sister ha rigenerato l'immagine.
+INFO     | 2026-07-01 13:34:57,372 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 86 PART 594 -> Tentativo: 'docelmo'
+INFO     | 2026-07-01 13:34:58,465 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [2/2]!
+INFO     | 2026-07-01 13:34:58,465 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_86_594_NCF
+INFO     | 2026-07-01 13:34:58,474 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+ERROR    | 2026-07-01 13:35:18,493 | CacheManager | ❌ Il tasto PDF non è apparso entro 20 secondi. Sister è in sovraccarico critico.
+ERROR    | 2026-07-01 13:35:18,494 | Orchestrator |    ❌ Errore di Download reale sul record [ROSIGNANO MARITTIMO_86_594_NCF]: Impossibile completare il download del PDF (Documentazione non disponibile o schermata imprevista). Dettaglio: Locator.wait_for: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator("input[type='submit'][name='metodo'][value='Salva']") to be visible
+
+INFO     | 2026-07-01 13:35:18,501 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:35:20,023 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:35:22,835 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:35:25,628 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:35:25,628 | Orchestrator |    ⏳ Pausa mimetica: attendo 1.75 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:35:27,385 | Orchestrator | [96/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_597_NCT
+INFO     | 2026-07-01 13:35:27,387 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,394 | Orchestrator | [97/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_599_NCT
+INFO     | 2026-07-01 13:35:27,396 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,397 | Orchestrator | [98/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_907_NCT
+INFO     | 2026-07-01 13:35:27,404 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,408 | Orchestrator | [99/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_908_NCT
+INFO     | 2026-07-01 13:35:27,414 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,420 | Orchestrator | [100/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_794_NCT
+INFO     | 2026-07-01 13:35:27,424 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,429 | Orchestrator | [101/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_797_NCT
+INFO     | 2026-07-01 13:35:27,432 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,435 | Orchestrator | [102/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_798_NCT
+INFO     | 2026-07-01 13:35:27,440 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,443 | Orchestrator | [103/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_799_NCT
+INFO     | 2026-07-01 13:35:27,449 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,453 | Orchestrator | [104/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_544_NCT
+INFO     | 2026-07-01 13:35:27,457 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,461 | Orchestrator | [105/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_545_NCT
+INFO     | 2026-07-01 13:35:27,464 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,467 | Orchestrator | [106/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_550_NCT
+INFO     | 2026-07-01 13:35:27,472 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,475 | Orchestrator | [107/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_520_NCF
+INFO     | 2026-07-01 13:35:27,481 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,482 | Orchestrator | [108/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_521_NCF
+INFO     | 2026-07-01 13:35:27,486 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:35:27,490 | Orchestrator | [109/121] Elaborazione chiave: ROSIGNANO MARITTIMO_86_604_NCF
+INFO     | 2026-07-01 13:35:27,499 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:35:27,525 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:35:35,560 | SisterClient |    ⏳ Pausa riflessiva di 2.00s prima dell'invio (NCF)...
+INFO     | 2026-07-01 13:35:41,050 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 86 PART 604 -> Tentativo: 'magoare'
+INFO     | 2026-07-01 13:35:42,464 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:35:42,464 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_86_604_NCF
+INFO     | 2026-07-01 13:35:42,472 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+ERROR    | 2026-07-01 13:36:02,492 | CacheManager | ❌ Il tasto PDF non è apparso entro 20 secondi. Sister è in sovraccarico critico.
+ERROR    | 2026-07-01 13:36:02,494 | Orchestrator |    ❌ Errore di Download reale sul record [ROSIGNANO MARITTIMO_86_604_NCF]: Impossibile completare il download del PDF (Documentazione non disponibile o schermata imprevista). Dettaglio: Locator.wait_for: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator("input[type='submit'][name='metodo'][value='Salva']") to be visible
+
+INFO     | 2026-07-01 13:36:02,510 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:36:04,030 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:36:06,773 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:36:09,561 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:36:09,562 | Orchestrator |    ⏳ Pausa mimetica: attendo 6.37 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:36:15,948 | Orchestrator | [110/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_23_NCT
+INFO     | 2026-07-01 13:36:15,960 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:36:15,960 | Orchestrator | [111/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_155_NCT
+INFO     | 2026-07-01 13:36:15,966 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:36:15,966 | Orchestrator | [112/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_46_NCF
+INFO     | 2026-07-01 13:36:15,969 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:36:15,973 | Orchestrator | [113/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_44_NCF
+INFO     | 2026-07-01 13:36:15,978 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:36:15,983 | Orchestrator | [114/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_87_NCT
+INFO     | 2026-07-01 13:36:15,985 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:36:15,989 | Orchestrator | [115/121] Elaborazione chiave: ROSIGNANO MARITTIMO_102_302_NCT
+INFO     | 2026-07-01 13:36:15,993 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:36:15,998 | Orchestrator | [116/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_117_AA_NCT
+INFO     | 2026-07-01 13:36:16,003 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:36:16,006 | Orchestrator | [117/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_117_AB_NCT
+INFO     | 2026-07-01 13:36:16,010 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:36:16,010 | Orchestrator | [118/121] Elaborazione chiave: ROSIGNANO MARITTIMO_90_69_NCT
+INFO     | 2026-07-01 13:36:16,019 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:36:17,069 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:36:25,206 | SisterClient |    ⏳ Pausa riflessiva di 1.85s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:36:29,598 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 90 PART 69 -> Tentativo: 'ticommate'
+WARNING  | 2026-07-01 13:36:30,546 | SisterClient |    ⚠️ Tentativo [1/2] fallito (Codice errato). Sister ha rigenerato l'immagine.
+INFO     | 2026-07-01 13:36:32,570 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 90 PART 69 -> Tentativo: 'petomaué'
+WARNING  | 2026-07-01 13:36:33,553 | SisterClient |    ⚠️ Tentativo [2/2] fallito (Codice errato). Sister ha rigenerato l'immagine.
+ERROR    | 2026-07-01 13:36:33,553 | SisterClient |    ❌ Falliti 2 tentativi di codice consecutivi per la particella 69.
+ERROR    | 2026-07-01 13:36:34,277 | Orchestrator |    ❌ Errore di Download reale sul record [ROSIGNANO MARITTIMO_90_69_NCT]: Codice di sicurezza errato per 2 volte consecutive. Record saltato.
+INFO     | 2026-07-01 13:36:34,278 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:36:35,804 | SisterClient | ✅ Maschera principale agganciata con successo. Pronto per il prossimo job.
+INFO     | 2026-07-01 13:36:35,805 | Orchestrator |    ⏳ Pausa mimetica: attendo 3.89 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:36:39,709 | Orchestrator | [119/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_5_AA_NCT
+INFO     | 2026-07-01 13:36:39,711 | Orchestrator |    -> Job già  presente in cache (Skip).
+INFO     | 2026-07-01 13:36:39,719 | Orchestrator | [120/121] Elaborazione chiave: ROSIGNANO MARITTIMO_92_5_AB_NCT
+INFO     | 2026-07-01 13:36:39,731 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:36:39,759 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:36:47,672 | SisterClient |    ⏳ Pausa riflessiva di 1.80s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:36:52,039 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 92 PART 5 -> Tentativo: 'bodipura'
+INFO     | 2026-07-01 13:36:53,146 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:36:53,146 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_92_5_AB_NCT
+INFO     | 2026-07-01 13:36:53,155 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:36:57,210 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:36:57,468 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:36:57,469 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:36:59,002 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:37:02,046 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:37:04,759 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:37:04,760 | Orchestrator |    ⏳ Pausa mimetica: attendo 3.55 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:37:08,322 | Orchestrator | [121/121] Elaborazione chiave: ROSIGNANO MARITTIMO_98_19_NCT
+INFO     | 2026-07-01 13:37:08,330 | SisterClient |    🎯 Form individuato nel Frame [0] (Tentativo radar 1/5). Verifica e iniezione dati...
+INFO     | 2026-07-01 13:37:08,359 | SisterClient |    -> Comune 'ROSIGNANO MARITTIMO' già agganciato. Salto la selezione del dropdown.
+INFO     | 2026-07-01 13:37:16,817 | SisterClient |    ⏳ Pausa riflessiva di 1.64s prima dell'invio (NCT)...
+INFO     | 2026-07-01 13:37:20,741 | SisterClient | 🤖 [GPT VISION] Codice analizzato per ROSIGNANO MARITTIMO FG 98 PART 19 -> Tentativo: 'tistatu'
+INFO     | 2026-07-01 13:37:21,876 | SisterClient |    ✅ Codice accettato o bypassato con successo al tentativo [1/2]!
+INFO     | 2026-07-01 13:37:21,877 | CacheManager | Intercettazione del download per la visura: ROSIGNANO MARITTIMO_98_19_NCT
+INFO     | 2026-07-01 13:37:21,886 | CacheManager | ⏳ Sister sta elaborando il documento... Aspetto che il pulsante PDF sia visibile (Fino a 20s)...
+INFO     | 2026-07-01 13:37:26,509 | CacheManager | 🎯 Pulsante visibile! Inizio l'intercettazione del flusso del file...
+INFO     | 2026-07-01 13:37:26,766 | Orchestrator | ✅ Visura scaricata ed inserita in cache.
+INFO     | 2026-07-01 13:37:26,767 | SisterClient | 🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...
+INFO     | 2026-07-01 13:37:28,305 | SisterClient |    -> [Passo 1] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:37:31,092 | SisterClient |    -> [Passo 2] Clic su bottone 'Indietro' strutturale.
+INFO     | 2026-07-01 13:37:33,879 | SisterClient | ✅ Maschera principale riagganciata con successo dopo i passi a ritroso.
+INFO     | 2026-07-01 13:37:33,880 | Orchestrator |    ⏳ Pausa mimetica: attendo 4.95 secondi prima del prossimo record...
+INFO     | 2026-07-01 13:37:38,837 | Orchestrator | === [FASE 2.4] INIZIO ATTESA ELABORAZIONE ATTI DIFFERITI (20 MINUTI) === 
+ ALTRIMENTI FAI IL LOGOUT E CHIUDI LA FINESTRA DEL BROWSER
+INFO     | 2026-07-01 13:37:38,838 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 20 minuti al recupero.
+INFO     | 2026-07-01 13:38:38,858 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 19 minuti al recupero.
+INFO     | 2026-07-01 13:39:38,877 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 18 minuti al recupero.
+INFO     | 2026-07-01 13:40:38,885 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 17 minuti al recupero.
+INFO     | 2026-07-01 13:41:38,891 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 16 minuti al recupero.
+INFO     | 2026-07-01 13:42:38,918 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 15 minuti al recupero.
+INFO     | 2026-07-01 13:43:38,927 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 14 minuti al recupero.
+INFO     | 2026-07-01 13:44:38,955 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 13 minuti al recupero.
+INFO     | 2026-07-01 13:45:38,963 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 12 minuti al recupero.
+INFO     | 2026-07-01 13:46:38,982 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 11 minuti al recupero.
+INFO     | 2026-07-01 13:47:38,994 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 10 minuti al recupero.
+INFO     | 2026-07-01 13:48:39,005 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 9 minuti al recupero.
+INFO     | 2026-07-01 13:49:39,012 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 8 minuti al recupero.
+INFO     | 2026-07-01 13:50:39,025 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 7 minuti al recupero.
+INFO     | 2026-07-01 13:51:39,040 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 6 minuti al recupero.
+INFO     | 2026-07-01 13:52:39,057 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 5 minuti al recupero.
+INFO     | 2026-07-01 13:53:39,066 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 4 minuti al recupero.
+INFO     | 2026-07-01 13:54:39,070 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 3 minuti al recupero.
+INFO     | 2026-07-01 13:55:39,096 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 2 minuti al recupero.
+INFO     | 2026-07-01 13:56:39,104 | Orchestrator | ⏱️ Sister sta elaborando i KO asincroni sullo sfondo... Mancano 1 minuti al recupero.
+INFO     | 2026-07-01 13:57:39,112 | Orchestrator | === [FASE 2.5] AVVIO RACCOLTA DIFFERITA VISURE SOSPESE ===
+INFO     | 2026-07-01 13:57:39,121 | SisterClient | 📩 Avvio scansione per il recupero delle visure differite (Area Richieste)...
+INFO     | 2026-07-01 13:57:43,166 | SisterClient | 📊 Rilevate 0 righe di documenti elaborati presenti in tabella.
+INFO     | 2026-07-01 13:57:43,230 | SisterClient | ✅ Fase di recupero differito completata ordinatamente.
+INFO     | 2026-07-01 13:57:43,231 | Orchestrator | === [FASE 2.6] ESECUZIONE LOGOUT CONTROLLATO UTENTE ===
+INFO     | 2026-07-01 13:57:43,753 | Orchestrator | ✅ Tasto 'Esci' intercettato con successo. Slot liberato sul server Sogei.
+INFO     | 2026-07-01 13:57:46,403 | Orchestrator | === [FASE 3] FINALIZZAZIONE OUTPUT E REPORTING ===
+INFO     | 2026-07-01 13:57:46,410 | FolderBuilder | Avvio smistamento strutturato (Strict Row Routing) delle visure...
+DEBUG    | 2026-07-01 13:57:46,442 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1145.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,447 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1145.pdf -> 13/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,453 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1148.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,456 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1148.pdf -> 13/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,461 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-259-AA.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,467 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-259-AB.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,472 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-262.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,475 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-262.pdf -> 13/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,481 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1151.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,485 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1154.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,489 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1157.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,491 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1157.pdf -> 13/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,493 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1157.pdf -> 13/cabine
+DEBUG    | 2026-07-01 13:57:46,497 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1157.pdf -> 13/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,500 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1157.pdf -> 13/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,503 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1160.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,505 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1160.pdf -> 13/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,507 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1160.pdf -> 13/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,509 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1160.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,517 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1160.pdf -> 13/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,520 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1160.pdf -> 13/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,525 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1165.pdf -> 13
+DEBUG    | 2026-07-01 13:57:46,527 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1165.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,530 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1165.pdf -> 13/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,534 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1165.pdf -> 13/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,539 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-712.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,541 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-712.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,544 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-712.pdf -> 14/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,549 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-713.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,551 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-713.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,554 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-713.pdf -> 14/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,557 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-707.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,559 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-707.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,567 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-710-AA.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,569 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-710-AA.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,573 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-710-AB.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,576 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-710-AB.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,580 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-796.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,584 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-782.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,587 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-782.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,591 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-59.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,594 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-59.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,598 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-720.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,602 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-722.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,605 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-722.pdf -> 14/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,607 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-722.pdf -> 14/cabine
+DEBUG    | 2026-07-01 13:57:46,610 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-722.pdf -> 14/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,613 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-722.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,615 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-722.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,617 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-722.pdf -> 14/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,621 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-723.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,624 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-723.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,629 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-719.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,631 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-719.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,634 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-124.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,636 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-124.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,640 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-68.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,642 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-68.pdf -> 14/cabine
+DEBUG    | 2026-07-01 13:57:46,644 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-68.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,647 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-87.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,649 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-87.pdf -> 14/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,652 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-87.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,654 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-87.pdf -> 14/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,658 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-86-AA.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,660 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-86-AA.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,664 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-86-AB.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,666 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-86-AB.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,670 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-765-601.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,673 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-765-601.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,677 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-606-AA.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,680 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-606-AA.pdf -> 14/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,683 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-606-AA.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,685 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-606-AA.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,689 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-606-AB.pdf -> 14
+DEBUG    | 2026-07-01 13:57:46,691 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-606-AB.pdf -> 14/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,694 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-606-AB.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,696 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-606-AB.pdf -> 14/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,699 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-62.pdf -> 1
+DEBUG    | 2026-07-01 13:57:46,702 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-62.pdf -> 1/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,705 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-62.pdf -> 1/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,707 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-62.pdf -> 1/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,710 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-62.pdf -> 1/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,714 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-4-605.pdf -> 1
+DEBUG    | 2026-07-01 13:57:46,717 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-4-605.pdf -> 1/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,719 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-4-605.pdf -> 1/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,724 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-17.pdf -> 1
+DEBUG    | 2026-07-01 13:57:46,726 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-17.pdf -> 1/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,728 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-17.pdf -> 1/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,732 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-17.pdf -> 17/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,734 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-17.pdf -> 1/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,736 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-17.pdf -> 17/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,740 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-59.pdf -> 1
+DEBUG    | 2026-07-01 13:57:46,742 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-59.pdf -> 1/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,747 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-47-602.pdf -> 1
+DEBUG    | 2026-07-01 13:57:46,750 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-22.pdf -> 1
+DEBUG    | 2026-07-01 13:57:46,752 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-22.pdf -> 1/cabine
+DEBUG    | 2026-07-01 13:57:46,756 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-11.pdf -> 1
+DEBUG    | 2026-07-01 13:57:46,758 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-11.pdf -> 1/cabine
+DEBUG    | 2026-07-01 13:57:46,760 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-11.pdf -> 1/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,763 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-11.pdf -> 1/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,767 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-46-602.pdf -> 1
+DEBUG    | 2026-07-01 13:57:46,770 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-46-602.pdf -> 1/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,772 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-46-602.pdf -> 17/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,776 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-51.pdf -> 17
+DEBUG    | 2026-07-01 13:57:46,778 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-51.pdf -> 17/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,780 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-51.pdf -> 17/cabine
+DEBUG    | 2026-07-01 13:57:46,783 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-51.pdf -> 17/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,785 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-51.pdf -> 17/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,788 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-51.pdf -> 17/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,791 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-13-AA.pdf -> 17
+DEBUG    | 2026-07-01 13:57:46,794 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-13-AA.pdf -> 17/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,797 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-13-AA.pdf -> 17/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,800 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-13-AB.pdf -> 17
+DEBUG    | 2026-07-01 13:57:46,803 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-13-AB.pdf -> 17/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,805 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-13-AB.pdf -> 17/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,809 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-6.pdf -> 2
+DEBUG    | 2026-07-01 13:57:46,811 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-6.pdf -> 2/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,815 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-6.pdf -> 2/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,818 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-10-AA.pdf -> 2
+DEBUG    | 2026-07-01 13:57:46,822 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-10-AB.pdf -> 2
+DEBUG    | 2026-07-01 13:57:46,824 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-9.pdf -> 2
+DEBUG    | 2026-07-01 13:57:46,827 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-9.pdf -> 2/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,830 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-44.pdf -> 2
+DEBUG    | 2026-07-01 13:57:46,833 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AA.pdf -> 2
+DEBUG    | 2026-07-01 13:57:46,835 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AA.pdf -> 2/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,837 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AA.pdf -> 2/cabine
+DEBUG    | 2026-07-01 13:57:46,839 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AA.pdf -> 2/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,841 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AA.pdf -> 2/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,845 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AB.pdf -> 2
+DEBUG    | 2026-07-01 13:57:46,847 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AB.pdf -> 2/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,850 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AB.pdf -> 2/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,854 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AC.pdf -> 2
+DEBUG    | 2026-07-01 13:57:46,856 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AC.pdf -> 2/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,858 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-11-AC.pdf -> 2/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,863 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-39.pdf -> 2
+DEBUG    | 2026-07-01 13:57:46,866 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-154.pdf -> 3+4
+DEBUG    | 2026-07-01 13:57:46,869 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-154.pdf -> 3+4/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,872 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-154.pdf -> 3+4/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,876 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-153.pdf -> 3+4
+DEBUG    | 2026-07-01 13:57:46,879 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-153.pdf -> 3+4/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,881 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-153.pdf -> 3+4/cabine
+DEBUG    | 2026-07-01 13:57:46,885 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-153.pdf -> 3+4/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,888 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-153.pdf -> 3+4/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,892 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-8-AA.pdf -> 3+4
+DEBUG    | 2026-07-01 13:57:46,895 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-8-AA.pdf -> 3+4/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,900 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-8-AB.pdf -> 3+4
+DEBUG    | 2026-07-01 13:57:46,902 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-8-AB.pdf -> 3+4/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,906 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-40.pdf -> 3+4
+DEBUG    | 2026-07-01 13:57:46,909 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-40.pdf -> 3+4/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,912 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-161.pdf -> 3+4
+DEBUG    | 2026-07-01 13:57:46,914 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-161.pdf -> 3+4/cabine
+DEBUG    | 2026-07-01 13:57:46,917 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-161.pdf -> 3+4/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,919 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-161.pdf -> 3+4/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,923 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-163.pdf -> 3+4
+DEBUG    | 2026-07-01 13:57:46,926 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-163.pdf -> 3+4/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,928 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-163.pdf -> 3+4/cabine
+DEBUG    | 2026-07-01 13:57:46,931 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-163.pdf -> 3+4/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,933 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-163.pdf -> 3+4/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,936 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-163.pdf -> 3+4/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,938 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-163.pdf -> 3+4/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,943 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-85.pdf -> 5
+DEBUG    | 2026-07-01 13:57:46,947 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-85.pdf -> 5/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:46,952 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-85.pdf -> 5/cabine
+DEBUG    | 2026-07-01 13:57:46,956 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-85.pdf -> 5/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:46,961 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-85.pdf -> 5/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:46,964 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-85.pdf -> 5/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,969 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-85.pdf -> 5/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,975 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-86.pdf -> 5
+DEBUG    | 2026-07-01 13:57:46,978 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-86.pdf -> 5/cabine
+DEBUG    | 2026-07-01 13:57:46,982 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-86.pdf -> 5/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,986 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-86.pdf -> 5/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:46,992 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-300.pdf -> 5
+DEBUG    | 2026-07-01 13:57:46,998 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-300.pdf -> 5/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,002 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-300.pdf -> 5/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,009 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-301.pdf -> 5
+DEBUG    | 2026-07-01 13:57:47,013 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-301.pdf -> 5/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:47,019 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-301.pdf -> 5/cabine
+DEBUG    | 2026-07-01 13:57:47,025 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-301.pdf -> 5/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,030 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-301.pdf -> 5/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,033 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-301.pdf -> 5/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,037 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-301.pdf -> 5/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,042 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-350.pdf -> 5
+DEBUG    | 2026-07-01 13:57:47,046 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-79.pdf -> 7 FV
+DEBUG    | 2026-07-01 13:57:47,050 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-79.pdf -> 7 FV/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:47,054 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-79.pdf -> 7 FV/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,057 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-79.pdf -> 7 FV/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,060 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-79.pdf -> 7 FV/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,066 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 FV
+DEBUG    | 2026-07-01 13:57:47,069 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 AGRO
+DEBUG    | 2026-07-01 13:57:47,072 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 AGRO/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:47,075 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 FV/cabine
+DEBUG    | 2026-07-01 13:57:47,078 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 AGRO/cabine
+DEBUG    | 2026-07-01 13:57:47,081 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 FV/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,083 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 FV/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,086 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 FV/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,088 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7AGRO/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,090 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 FV/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,093 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-81.pdf -> 7 AGRO/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,097 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-13-AA.pdf -> 7 AGRO
+DEBUG    | 2026-07-01 13:57:47,100 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-13-AB.pdf -> 7 AGRO
+DEBUG    | 2026-07-01 13:57:47,103 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-16.pdf -> 7 AGRO
+DEBUG    | 2026-07-01 13:57:47,105 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-16.pdf -> 7 AGRO/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:47,107 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-16.pdf -> 7 AGRO/cabine
+DEBUG    | 2026-07-01 13:57:47,110 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-16.pdf -> 7 AGRO/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,114 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-16.pdf -> 7 AGRO/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,117 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-16.pdf -> 7 AGRO/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,121 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-4-AA.pdf -> 7 AGRO
+DEBUG    | 2026-07-01 13:57:47,124 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-4-AA.pdf -> 7 AGRO/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,128 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-4-AB.pdf -> 7 AGRO
+DEBUG    | 2026-07-01 13:57:47,131 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-4-AB.pdf -> 7 AGRO/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,134 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-171.pdf -> 9
+DEBUG    | 2026-07-01 13:57:47,137 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-171.pdf -> 9/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:47,139 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-171.pdf -> 9/cabine
+DEBUG    | 2026-07-01 13:57:47,142 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-171.pdf -> 8/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,145 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-171.pdf -> 9/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,149 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-29-AA.pdf -> 9
+DEBUG    | 2026-07-01 13:57:47,153 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-29-AB.pdf -> 9
+DEBUG    | 2026-07-01 13:57:47,156 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-142-AA.pdf -> 9
+DEBUG    | 2026-07-01 13:57:47,158 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-142-AA.pdf -> 9/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:47,161 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-142-AA.pdf -> 9/cabine
+DEBUG    | 2026-07-01 13:57:47,164 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-142-AA.pdf -> 9/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,167 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-142-AB.pdf -> 9
+DEBUG    | 2026-07-01 13:57:47,169 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-142-AB.pdf -> 9/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,171 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-142-AB.pdf -> 9/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,175 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-31-AA.pdf -> 9
+DEBUG    | 2026-07-01 13:57:47,179 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-31-AB.pdf -> 9
+DEBUG    | 2026-07-01 13:57:47,182 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-144.pdf -> 9
+DEBUG    | 2026-07-01 13:57:47,185 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-144.pdf -> 9/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:47,187 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-144.pdf -> 9/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,190 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-144.pdf -> 9/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,194 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-144.pdf -> 9/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,199 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-32.pdf -> 9
+DEBUG    | 2026-07-01 13:57:47,203 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-114.pdf -> 8
+DEBUG    | 2026-07-01 13:57:47,205 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-114.pdf -> 8/cabine
+DEBUG    | 2026-07-01 13:57:47,209 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-114.pdf -> 8/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,212 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-114.pdf -> 8/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,216 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-146.pdf -> 8
+DEBUG    | 2026-07-01 13:57:47,218 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-146.pdf -> 8/cancelli ingresso
+DEBUG    | 2026-07-01 13:57:47,220 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-146.pdf -> 8/cabine
+DEBUG    | 2026-07-01 13:57:47,223 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-146.pdf -> 8/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,227 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-146.pdf -> 8/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,229 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-146.pdf -> 8/opere di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,233 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-583.pdf -> 13/cabine
+DEBUG    | 2026-07-01 13:57:47,236 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1138.pdf -> 13/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,240 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1138.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,245 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-25-602.pdf -> 17/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,248 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-118.pdf -> 8/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,252 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-168.pdf -> 8/stradelle in progetto esterne impianto
+DEBUG    | 2026-07-01 13:57:47,254 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-168.pdf -> 8/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,259 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1143.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,262 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-81-1143.pdf -> 13/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,266 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-673.pdf -> 13/strade accesso esistenti
+WARNING  | 2026-07-01 13:57:47,266 | FolderBuilder | File PDF non trovato in cache per la chiave: ROSIGNANO MARITTIMO_86_540_NCF (Impossibile smistare)
+DEBUG    | 2026-07-01 13:57:47,272 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-49.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,276 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-35.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,280 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-543.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,284 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-581.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,289 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-591.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,294 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-589-AB.pdf -> 13/strade accesso esistenti
+WARNING  | 2026-07-01 13:57:47,294 | FolderBuilder | File PDF non trovato in cache per la chiave: ROSIGNANO MARITTIMO_86_594_NCF (Impossibile smistare)
+DEBUG    | 2026-07-01 13:57:47,298 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-597.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,303 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-599.pdf -> 13/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,306 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-907.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,310 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-908.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,316 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-794.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,319 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-797.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,323 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-798.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,325 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-799.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,330 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-544.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,335 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-545.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,339 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-550.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,342 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-520.pdf -> 14/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,347 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-86-521.pdf -> 14/strade accesso esistenti
+WARNING  | 2026-07-01 13:57:47,347 | FolderBuilder | File PDF non trovato in cache per la chiave: ROSIGNANO MARITTIMO_86_604_NCF (Impossibile smistare)
+DEBUG    | 2026-07-01 13:57:47,353 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-23.pdf -> 1/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,356 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-90-23.pdf -> 17/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,361 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-155.pdf -> 3+4/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,367 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-46.pdf -> 3+4/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,371 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-44.pdf -> 3+4/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,375 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-87.pdf -> 5/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,383 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-102-302.pdf -> 5/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,387 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-117-AA.pdf -> 8/strade accesso esistenti
+DEBUG    | 2026-07-01 13:57:47,391 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-117-AB.pdf -> 8/strade accesso esistenti
+WARNING  | 2026-07-01 13:57:47,391 | FolderBuilder | File PDF non trovato in cache per la chiave: ROSIGNANO MARITTIMO_90_69_NCT (Impossibile smistare)
+DEBUG    | 2026-07-01 13:57:47,397 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-5-AA.pdf -> 2/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,400 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-92-5-AB.pdf -> 2/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,403 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-19.pdf -> 8/opere accessorie di invarianza idraulica
+DEBUG    | 2026-07-01 13:57:47,406 | FolderBuilder | Smistato: LI-ROSIGNANO MARITTIMO-98-19.pdf -> 9/opere accessorie di invarianza idraulica
+INFO     | 2026-07-01 13:57:47,406 | FolderBuilder | Smistamento completato. Effettuate 284 copie conformi nel nuovo layout d'impianto.
+INFO     | 2026-07-01 13:57:47,407 | Reporters    | Avvio generazione del report unificato delle eccezioni...
+INFO     | 2026-07-01 13:57:47,807 | Reporters    | ✅ Report delle eccezioni salvato con successo in: report_eccezioni_20260701_135747.xlsx
+INFO     | 2026-07-01 13:57:47,808 | Reporters    |    📊 Riepilogo anomalie -> Totale: 25
+INFO     | 2026-07-01 13:57:47,810 | Orchestrator | ============================================================
+INFO     | 2026-07-01 13:57:47,812 | Orchestrator |          Workflow terminato. Risorse salvate e consolidate!
+INFO     | 2026-07-01 13:57:47,814 | Orchestrator | ============================================================

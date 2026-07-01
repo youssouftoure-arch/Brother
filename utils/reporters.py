@@ -70,7 +70,8 @@ def generate_report(invalid_rows: list, scrape_errors: list, original_headers: l
     all_errors.sort(key=get_sort_key)
 
     # Definizione dell'ordine finale delle colonne
-    ordered_cols = ["TIPO ERRORE", "RIGA EXCEL"]
+    # DOCUMENTO_IN_CACHE è valorizzata dall'orchestratore: 'Sì' / 'No' / assente per errori di parsing
+    ordered_cols = ["TIPO ERRORE", "RIGA EXCEL", "DOCUMENTO_IN_CACHE"]
     if original_headers:
         for col in original_headers:
             if col not in ordered_cols:

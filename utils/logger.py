@@ -27,6 +27,8 @@ def get_logger(name: str) -> logging.Logger:
 
     # 2. Handler File ROTANTE (Mantiene il tuo try/except protettivo e la tua variabile Settings)
     try:
+        import os
+        os.makedirs(Settings.LOG_FILE.parent, exist_ok=True)
         # Sostituito con RotatingFileHandler preservando Settings.LOG_FILE ed encoding originali
         file_handler = RotatingFileHandler(
             str(Settings.LOG_FILE), 

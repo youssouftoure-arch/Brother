@@ -1,11 +1,12 @@
 import customtkinter as ctk
 
 class ControlPanel(ctk.CTkFrame):
-    def __init__(self, master, provinces: list[str], default_excel: str, api_key: str, **kwargs):
+    def __init__(self, master, provinces: list[str] = None, default_excel: str = "", api_key: str = "", **kwargs):
         super().__init__(master, **kwargs)
 
         self.input_path_var = ctk.StringVar(value=default_excel)
-        self.province_var = ctk.StringVar(value=provinces[0] if provinces else "")
+        _provinces = provinces or []
+        self.province_var = ctk.StringVar(value=_provinces[0] if _provinces else "")
         self.api_key_var = ctk.StringVar(value=api_key or "")
 
         self.title_label = ctk.CTkLabel(self, text="Pannello di Controllo", font=ctk.CTkFont(size=18, weight="bold"))
@@ -18,20 +19,18 @@ class ControlPanel(ctk.CTkFrame):
         self.browse_button = ctk.CTkButton(self, text="Sfoglia File", width=150)
         self.browse_button.grid(row=3, column=0, padx=10, pady=(0, 20), sticky="w")
 
-        self.province_label = ctk.CTkLabel(self, text="Provincia ufficio di riferimento")
-        self.province_label.grid(row=4, column=0, sticky="w", padx=10, pady=(0, 5))
-        self.province_dropdown = ctk.CTkOptionMenu(self, values=provinces, variable=self.province_var, width=280)
-        self.province_dropdown.grid(row=5, column=0, columnspan=2, padx=10, pady=(0, 20), sticky="w")
+        # Nota: il menu a tendina della provincia è stato rimosso dalla GUI.
+        # province_var e get_selected_province() rimangono attivi per il backend.
 
         self.api_label = ctk.CTkLabel(self, text="OpenAI API Key")
-        self.api_label.grid(row=6, column=0, sticky="w", padx=10, pady=(0, 5))
+        self.api_label.grid(row=4, column=0, sticky="w", padx=10, pady=(0, 5))
         self.api_entry = ctk.CTkEntry(self, textvariable=self.api_key_var, show="*", width=380)
-        self.api_entry.grid(row=7, column=0, columnspan=2, padx=10, pady=(0, 10), sticky="ew")
+        self.api_entry.grid(row=5, column=0, columnspan=2, padx=10, pady=(0, 10), sticky="ew")
         self.save_api_button = ctk.CTkButton(self, text="Salva API Key", width=150)
-        self.save_api_button.grid(row=8, column=0, padx=10, pady=(0, 20), sticky="w")
+        self.save_api_button.grid(row=6, column=0, padx=10, pady=(0, 20), sticky="w")
 
         self.clear_cache_button = ctk.CTkButton(self, text="Svuota Cache", fg_color="#AA2222", hover_color="#CC3333")
-        self.clear_cache_button.grid(row=9, column=0, padx=10, pady=(0, 20), sticky="w")
+        self.clear_cache_button.grid(row=7, column=0, padx=10, pady=(0, 20), sticky="w")
 
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)

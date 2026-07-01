@@ -1,9 +1,18 @@
+import os
+import sys
+
 import pandas as pd
 from config.settings import Settings
 
+
+def resource_path(relative_path: str) -> str:
+    """Resolve bundled resources for both local runs and PyInstaller builds."""
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
+
 class GetProvince:
     def __init__(self):
-        file = Settings.ISTAT_CSV
+        file = resource_path(str(Settings.ISTAT_CSV))
         # Preservati i tuoi parametri reali del CSV
         self.df = pd.read_csv(
             file,

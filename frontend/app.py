@@ -21,6 +21,13 @@ from .log_handler import TkinterLogHandler
 from .orchestrator_bridge import OrchestratorRunner
 
 
+def resource_path(relative_path: str) -> Path:
+    """Restituisce il percorso assoluto alla risorsa, compatibile con PyInstaller."""
+    if hasattr(sys, '_MEIPASS'):
+        return Path(sys._MEIPASS) / relative_path
+    return Path(os.path.abspath(".")) / relative_path
+
+
 class SisterAutomationApp(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -62,8 +69,8 @@ class SisterAutomationApp(ctk.CTk):
         # =========================================================================
         # 👑 GESTIONE LOGO UNIVERSALE (FRAME + TASKBAR)
         # =========================================================================
-        app_icon_path = BASE_DIR / "frontend" / "assets" / "logohq.ico"
-        logo_png_path = BASE_DIR / "frontend" / "assets" / "logohq.png"
+        app_icon_path = resource_path("frontend/assets/logohq.ico")
+        logo_png_path = resource_path("frontend/assets/logohq.png")
 
         # Passo A: Aggancio dell'icona bitmap tradizionale (per la barra del titolo Windows)
         if app_icon_path.exists():
