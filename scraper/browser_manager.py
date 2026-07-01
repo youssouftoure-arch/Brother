@@ -23,8 +23,10 @@ class BrowserManager:
             headless=Settings.HEADLESS,
             args=[
                 "--disable-blink-features=AutomationControlled",  # Disattiva le impronte digitali da robot
+                "--disable-infobars",
                 "--no-sandbox",
-                "--disable-infobars"
+                "--disable-setuid-sandbox",
+                "--window-position=0,0",
             ]
         )
         
@@ -32,34 +34,26 @@ class BrowserManager:
         # Iniettiamo anche un User-Agent umano identico a un Chrome stabile su Windows
         self.context = self._browser.new_context(
             storage_state=str(Settings.STATE_FILE),
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            locale="it-IT",
+            timezone_id="Europe/Rome",
+            viewport={"width": 1366, "height": 768},
         )
+
+        # Iniezione globale di script per mascherare proprietà sensibili prima del caricamento
+        try:
+            self.context.add_init_script("""
+                Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
+                Object.defineProperty(navigator, 'languages', {get: () => ['it-IT', 'it', 'en-US', 'en']});
+                Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]});
+                window.navigator.chrome = { runtime: {}, loadTimes: Date.now };
+            """)
+        except Exception:
+            pass
         return self
 
     def new_page(self) -> Page:
         page = self.context.new_page()
-        
-        # 🎯 SCUDO STEALTH 2: Iniezione Javascript prima del rendering della pagina
-        # Altera le variabili globali Javascript ingannando i radar anti-bot di Sogei.
-        # Ripristina navigator.webdriver su undefined e simula plug-in e lingue umane.
-        try:
-            page.add_init_script("""
-                Object.defineProperty(navigator, 'webdriver', {
-                    get: () => undefined
-                });
-                window.chrome = {
-                    runtime: {},
-                };
-                Object.defineProperty(navigator, 'plugins', {
-                    get: () => [1, 2, 3, 4, 5],
-                });
-                Object.defineProperty(navigator, 'languages', {
-                    get: () => ['it-IT', 'it', 'en-US', 'en'],
-                });
-            """)
-        except Exception:
-            pass
-            
         self.current_page = page
         return page
 

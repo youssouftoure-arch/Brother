@@ -1,8 +1,6 @@
 # (Fase 2) Lettura Excel, routing logico, normalizzazione
 from collections import defaultdict
-
 import pandas as pd
-
 from config.settings import Settings
 from model.po.rigaExcel import DownloadJob, jobConflictWarning, rigaInvalida
 
@@ -55,7 +53,8 @@ class stramExcel:
             df_orig = pd.read_excel(path, dtype=str, header=0)
             rename = {k: v for k, v in COL_MAP.items() if k in df_orig.columns}
 
-        # forward fill the "opera" column (using the key that maps to "opera")
+        # 🟢 RIATTIVATO IL FORWARD FILL SOLO PER LE OPERE
+        # Consente alle righe sotto di ereditare la lavorazione speciale (es. Invarianza Idraulica)
         col_opera_orig = None
         for k in COL_MAP:
             if COL_MAP[k] == "opera" and k in df_orig.columns:
@@ -66,6 +65,26 @@ class stramExcel:
 
         df_renamed = df_orig.rename(columns=rename)
         return df_renamed, df_orig
+
+    @staticmethod
+    def _normalize_tipo(tipo_val: str) -> str:
+        """
+        Normalizza il valore della colonna CATASTO convertendolo 
+        nelle sigle standard accettate da Sister (NCT o NCF).
+        """
+        val = str(tipo_val).strip().upper()
+        if not val or val in ("NAN", "NONE"):
+            return ""
+        if "FAB" in val or "NCF" in val or "URB" in val or "FABBRICATI" in val:
+            return "NCF"
+        return "NCT"
+
+    @staticmethod
+    def _metadati_interrogazione(job: DownloadJob) -> tuple:
+        """
+        Ritorna i metadati essenziali di ricerca per il confronto univoco dei job.
+        """
+        return (job.comune, job.foglio, job.particella, job.sub, job.tipo)
 
     @staticmethod
     def parse_excel(path: str = None) -> tuple[list[DownloadJob], list[rigaInvalida]]:
@@ -132,6 +151,27 @@ class stramExcel:
         return valid, invalid
 
     @staticmethod
+    def _resolve_subfolder(oggetto_val: str) -> str:
+        """
+        Strict Row Routing — Calcola la sottocartella tecnica dalla colonna OGGETTO
+        della singola riga Excel. Nessuna logica esterna nel FolderBuilder.
+        """
+        t = oggetto_val.lower()
+        if "cancell" in t or "ingresso" in t:
+            return "cancelli ingresso"
+        if "cabin" in t:
+            return "cabine"
+        if "stradelle" in t or ("strad" in t and "progetto" in t):
+            return "stradelle in progetto esterne impianto"
+        if "accesso" in t or "esistenti" in t:
+            return "strade accesso esistenti"
+        if "accessorie" in t and "invarianza" in t:
+            return "opere accessorie di invarianza idraulica"
+        if "invarianza" in t or "idraulica" in t:
+            return "opere di invarianza idraulica"
+        return ""
+
+    @staticmethod
     def deduplicate_jobs(
         jobs: list[DownloadJob],
     ) -> tuple[list[DownloadJob], dict[str, list[str]], list[jobConflictWarning]]:
@@ -140,8 +180,6 @@ class stramExcel:
         conflitti: list[jobConflictWarning] = []
 
         for job in jobs:
-            # 🎯 INIEZIONE STRUTTURALE COLONNA OGGETTO
-            # Estraiamo dinamicamente il valore di OGGETTO dalla riga nativa salvata in cache
             oggetto_val = ""
             if job.dati_originali:
                 for k, v in job.dati_originali.items():
@@ -149,40 +187,55 @@ class stramExcel:
                         oggetto_val = str(v).strip()
                         break
 
-            # Costruiamo la destinazione includendo anche l'oggetto per attivare i filtri del FolderBuilder
-            base_dest = job.opera if not job.categoria else f"{job.opera}/{job.categoria}"
-            if oggetto_val and oggetto_val.upper() not in ("NAN", "NONE"):
-                destinazione = f"{base_dest}/{oggetto_val}"
-            else:
-                destinazione = base_dest
+            # 🟢 LA RADICE COMUNE: La cartella principale è sempre il CAMPO (job.categoria)
+            root_folder = str(job.categoria).strip()
+            opere_clean = str(job.opera).strip().upper()
+            text_oggetto = oggetto_val.lower()
 
-            if destinazione not in mappa[job.chiave]:
-                mappa[job.chiave].append(destinazione)
+            destinazione_finale = None
 
-            if job.chiave not in seen:
-                seen[job.chiave] = job
+            # 🛠️ CANALE B: Se l'opera è una lavorazione speciale, comanda lei la sottocartella
+            if "INVARIANZA" in opere_clean and "ACCESSORIE" in opere_clean:
+                destinazione_finale = f"{root_folder}/opere accessorie di invarianza idraulica"
+            elif "INVARIANZA" in opere_clean:
+                destinazione_finale = f"{root_folder}/opere di invarianza idraulica"
+            elif "STRADELLE" in opere_clean:
+                destinazione_finale = f"{root_folder}/stradelle in progetto esterne impianto"
+            elif "ACCESSO" in opere_clean:
+                destinazione_finale = f"{root_folder}/strade accesso esistenti"
+            elif "DISMISSIONE" in opere_clean:
+                destinazione_finale = f"{root_folder}/opere di dismissione"
+                
+            # 🛠️ CANALE A-SPECIAL: Se è il gruppo "OPERE CONNESSIONE", applica il filtro RIGIDO richiesto da Martina
+            elif "CONNESSIONE" in opere_clean:
+                if "cancell" in text_oggetto or "ingresso" in text_oggetto:
+                    destinazione_finale = f"{root_folder}/cancelli ingresso"
+                elif "cabin" in text_oggetto:
+                    destinazione_finale = f"{root_folder}/cabine"
+                else:
+                    # Tassativamente escluso: non crea la root del campo e non scarica la visura
+                    destinazione_finale = None
+            
+            # 🛠️ CANALE A-STANDARD: Campi base normali (es. Campo FV 13)
             else:
-                esistente = seen[job.chiave]
-                if stramExcel._metadati_interrogazione(job) != stramExcel._metadati_interrogazione(esistente):
-                    conflitti.append(jobConflictWarning(job.chiave, jobA=esistente, jobB=job))
+                if "cancell" in text_oggetto or "ingresso" in text_oggetto:
+                    destinazione_finale = f"{root_folder}/cancelli ingresso"
+                elif "cabin" in text_oggetto:
+                    destinazione_finale = f"{root_folder}/cabine"
+                else:
+                    destinazione_finale = root_folder
+
+            # 🎯 SELEZIONE RIGIDA ANTI-SPRECO:
+            # Registriamo il percorso e abilitiamo il download da Sister SOLO se la destinazione è valida
+            if destinazione_finale:
+                if destinazione_finale not in mappa[job.chiave]:
+                    mappa[job.chiave].append(destinazione_finale)
+
+                if job.chiave not in seen:
+                    seen[job.chiave] = job
+                else:
+                    esistente = seen[job.chiave]
+                    if stramExcel._metadati_interrogazione(job) != stramExcel._metadati_interrogazione(esistente):
+                        conflitti.append(jobConflictWarning(job.chiave, jobA=esistente, jobB=job))
 
         return list(seen.values()), dict(mappa), conflitti
-
-    @staticmethod
-    def _metadati_interrogazione(job: DownloadJob) -> tuple:
-        return (job.comune, job.foglio, job.particella, job.sub, job.tipo)
-
-    @staticmethod
-    def _normalize_tipo(tipo: str) -> str:
-        tipo_norm = (tipo or "").strip().upper()
-        mapping = {
-            "NCT": "NCT",
-            "NCF": "NCF",
-            "T": "NCT",
-            "TERRENO": "NCT",
-            "TERRENI": "NCT",
-            "F": "NCF",
-            "FABBRICATO": "NCF",
-            "FABBRICATI": "NCF",
-        }
-        return mapping.get(tipo_norm, "")

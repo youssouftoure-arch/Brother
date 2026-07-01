@@ -1,6 +1,7 @@
 # scraper/sister_client.py — Gestore statico delle ricerche su Sister con VISION AI GPT
 import time
 import base64
+import random
 from config.settings import Settings
 from utils.logger import get_logger
 from openai import OpenAI
@@ -84,18 +85,59 @@ class NavigatoreSister:
         else:
             logger.info(f"   -> Comune '{comune.upper()}' già agganciato. Salto la selezione del dropdown.")
 
-        target_frame.locator(Settings.SEL_NCT_FOGLIO).fill(str(foglio))
-        target_frame.locator(Settings.SEL_NCT_PARTICELLA).fill(str(particella))
-        
+        # Compilazione con digitazione simulata (ritardi umani)
+        loc_foglio = target_frame.locator(Settings.SEL_NCT_FOGLIO)
+        loc_foglio.click()
+        try:
+            loc_foglio.fill("")
+        except Exception:
+            pass
+        loc_foglio.type(str(foglio), delay=random.randint(100, 200))
+        time.sleep(random.uniform(0.4, 0.8))
+
+        loc_part = target_frame.locator(Settings.SEL_NCT_PARTICELLA)
+        loc_part.click()
+        try:
+            loc_part.fill("")
+        except Exception:
+            pass
+        loc_part.type(str(particella), delay=random.randint(100, 200))
+        time.sleep(random.uniform(0.4, 0.8))
+
         if sub and tipo_catasto == "NCF":
-            target_frame.locator(Settings.SEL_NCF_SUB).fill(str(sub))
+            loc_sub = target_frame.locator(Settings.SEL_NCF_SUB)
+            loc_sub.click()
+            try:
+                loc_sub.fill("")
+            except Exception:
+                pass
+            loc_sub.type(str(sub), delay=random.randint(100, 200))
+            time.sleep(random.uniform(0.4, 0.8))
         else:
             if target_frame.locator(Settings.SEL_NCF_SUB).count() > 0:
-                target_frame.locator(Settings.SEL_NCF_SUB).fill("")
-        
-        target_frame.locator(Settings.SEL_FORM_RICHIEDENTE).fill("Uso Professionale")
-        target_frame.locator(Settings.SEL_FORM_MOTIVAZIONE).fill("Verifica particellare")
-        
+                try:
+                    target_frame.locator(Settings.SEL_NCF_SUB).fill("")
+                except Exception:
+                    pass
+
+        loc_rich = target_frame.locator(Settings.SEL_FORM_RICHIEDENTE)
+        loc_rich.click()
+        try:
+            loc_rich.fill("")
+        except Exception:
+            pass
+        loc_rich.type("Uso Professionale", delay=random.randint(80, 150))
+        time.sleep(random.uniform(0.3, 0.6))
+
+        loc_mot = target_frame.locator(Settings.SEL_FORM_MOTIVAZIONE)
+        loc_mot.click()
+        try:
+            loc_mot.fill("")
+        except Exception:
+            pass
+        loc_mot.type("Verifica particellare", delay=random.randint(80, 150))
+        time.sleep(random.uniform(0.4, 0.8))
+
         return target_frame
 
     @staticmethod
@@ -199,12 +241,29 @@ class NavigatoreSister:
     def _processa_ricerca_con_retry(page, comune: str, provincia: str, foglio: str, particella: str, tipo: str, sub: str = ""):
         if tipo == "NCT":
             target_frame = NavigatoreSister._compila_modulo_unificato(page, comune, "NCT", foglio, particella)
-            time.sleep(1.2) # Respiro anti-NullPointer
-            target_frame.locator(Settings.SEL_NCT_SUBMIT).click()
+            # Pausa riflessiva prima dell'invio per dare tempo al server di sincronizzare
+            pausa = random.uniform(1.5, 2.2)
+            logger.info(f"   ⏳ Pausa riflessiva di {pausa:.2f}s prima dell'invio (NCT)...")
+            time.sleep(pausa)
+            btn = target_frame.locator(Settings.SEL_NCT_SUBMIT)
+            try:
+                btn.hover()
+                time.sleep(0.3)
+            except Exception:
+                pass
+            btn.click()
         else:
             target_frame = NavigatoreSister._compila_modulo_unificato(page, comune, "NCF", foglio, particella, sub)
-            time.sleep(1.2) # Respiro anti-NullPointer
-            target_frame.locator(Settings.SEL_NCF_SUBMIT).click()
+            pausa = random.uniform(1.5, 2.2)
+            logger.info(f"   ⏳ Pausa riflessiva di {pausa:.2f}s prima dell'invio (NCF)...")
+            time.sleep(pausa)
+            btn = target_frame.locator(Settings.SEL_NCF_SUBMIT)
+            try:
+                btn.hover()
+                time.sleep(0.3)
+            except Exception:
+                pass
+            btn.click()
 
         captcha_frame = NavigatoreSister._attendi_caricamento_captcha_page(page, comune, foglio, particella)
         if not captcha_frame:
@@ -271,61 +330,131 @@ class NavigatoreSister:
 
     @staticmethod
     def torna_al_form(page, url_iniziale: str = None):
-        logger.info("🔄 Avvio della procedura di ritorno alla maschera principale...")
+        """
+        Riporta il browser alla maschera principale di inserimento dati.
+        🎯 SCUDO ANTI-DETACHED FRAME: Protegge i cicli di scansione dei frame dalle 
+        mutazioni asincrone di Playwright ed applica un freno idraulico sui tempi di caricamento.
+        """
+        logger.info("🔄 Avvio della procedura di ritorno alla maschera principale (Freno a max 2 livelli)...")
         
-        for step in range(1, 6):
-            form_presente = any(
-                f.locator("input[type='submit'][name='scelta'][value='Visura']").count() > 0 
-                for f in page.frames
-            )
-            
-            if form_presente:
-                logger.info("✅ Maschera principale agganciata con successo. Pronto per il prossimo job.")
-                return
+        fallback_local_url = "https://sister3.agenziaentrate.gov.it/Visure/vimm/IndietroDatiImm.do"
+        fallback_office_url = "https://sister3.agenziaentrate.gov.it/Visure/SceltaLink.do?lista=IMM&codUfficio=LI"
+        
+        # ⏱️ Pausa preventiva di stabilizzazione post-download
+        time.sleep(1.5)
 
-            cliccato = False
-            for frame in page.frames:
-                btn_indietro = frame.locator(Settings.SEL_BUTTON_INDIETRO)
-                if btn_indietro.count() > 0 and btn_indietro.first.is_visible():
-                    logger.info(f"   -> [Passo {step}] Clic su bottone 'Indietro' strutturale.")
-                    btn_indietro.first.click()
+        # 🛡️ Funzione interna di sicurezza per scansionare i frame senza rischiare il "Frame was detached"
+        def verifica_form_protetto() -> bool:
+            try:
+                for f in list(page.frames):
                     try:
+                        if f.locator("input[type='submit'][name='scelta'][value='Visura']").count() > 0:
+                            return True
+                    except Exception:
+                        continue  # Se il frame si distacca durante il controllo, passa al successivo senza crashare
+            except Exception:
+                pass
+            return False
+
+        # 🚨 CONTROLLO RAPIDO ERRORE 500
+        try:
+            testo_pagina = str(page.content()).upper()
+            if "500" in testo_pagina or "NULLPOINTER" in testo_pagina or "EXCEPTION" in testo_pagina:
+                logger.warning("   ⚠️ RILEVATO ERRORE 500 SUL SERVER! Forzo il reset macro dell'ufficio...")
+                raise ValueError()
+        except Exception:
+            pass
+
+        # -------------------------------------------------------------------------
+        # TENTATIVO 1: Navigazione a ritroso controllata (Solo se la pagina è stabile)
+        # -------------------------------------------------------------------------
+        else:
+            for step in range(1, 3):  # Al massimo 2 passi indietro
+                if verifica_form_protetto():
+                    logger.info("✅ Maschera principale agganciata con successo. Pronto per il prossimo job.")
+                    return
+
+                cliccato = False
+                try:
+                    for frame in list(page.frames):
+                        try:
+                            btn_indietro = frame.locator(Settings.SEL_BUTTON_INDIETRO)
+                            if btn_indietro.count() > 0 and btn_indietro.first.is_visible():
+                                logger.info(f"   -> [Passo {step}] Clic su bottone 'Indietro' strutturale.")
+                                btn_indietro.first.click()
+                                cliccato = True
+                                break
+                        except Exception:
+                            continue
+                except Exception:
+                    pass
+                
+                if cliccato:
+                    try:
+                        page.wait_for_load_state("load", timeout=3000)
                         page.wait_for_load_state("networkidle", timeout=3000)
                     except Exception:
                         pass
-                    time.sleep(1.5)
-                    cliccato = True
-                    break
-            
-            if not cliccato:
-                logger.warning(f"   -> [Passo {step}] Nessun bottone rilevato (schermata di errore). Eseguo go_back() nativo...")
-                page.go_back()
-                try:
-                    page.wait_for_load_state("load", timeout=3000)
-                    page.wait_for_load_state("networkidle", timeout=3000)
-                except Exception:
-                    pass
-                time.sleep(1.5)
+                    time.sleep(2.0)  # ⏱️ Freno idraulico post-click
+                else:
+                    logger.warning(f"   -> [Passo {step}] Nessun bottone rilevato. Eseguo go_back() nativo...")
+                    try:
+                        page.go_back()
+                        page.wait_for_load_state("load", timeout=3000)
+                        page.wait_for_load_state("networkidle", timeout=3000)
+                    except Exception:
+                        pass
+                    time.sleep(2.0)  # ⏱️ Freno idraulico post-go_back
 
+            if verifica_form_protetto():
+                logger.info("✅ Maschera principale riagganciata con successo dopo i passi a ritroso.")
+                return
+
+        # -------------------------------------------------------------------------
+        # TENTATIVO 2: Hard Recovery (Rigenerazione Totale della struttura Frame)
+        # -------------------------------------------------------------------------
+        logger.warning("   🚨 Stato instabile o frame distaccati. Eseguo l'Hard Reset della sessione...")
+        
+        # 1. Tentativo con modulo locale
+        try:
+            page.goto(fallback_local_url)
+            page.wait_for_load_state("load", timeout=4000)
+            page.wait_for_load_state("networkidle", timeout=4000)
+            time.sleep(2.0)
+            if verifica_form_protetto():
+                logger.info("✅ Ripristino locale riuscito. Sessione pulita.")
+                return
+        except Exception:
+            pass
+
+        # 2. Hard Reset strutturale sull'Ufficio provinciale (Livorno)
+        logger.warning("   🚨 Reset locale fallito. ESEGUO HARD RESET SULL'UFFICIO DI LIVORNO...")
+        try:
+            page.goto(fallback_office_url)
+            page.wait_for_load_state("load", timeout=6000)
+            page.wait_for_load_state("networkidle", timeout=6000)
+            time.sleep(3.0)  # Pausa estesa indispensabile per consentire a Java di ricreare i frame
+            
+            if verifica_form_protetto():
+                logger.info("✅ HARD RESET RIUSCITO! La struttura frame di Livorno è stata rigenerata.")
+                return
+        except Exception:
+            pass
+
+        # 3. Ultimissima spiaggia
         if url_iniziale:
-            logger.warning("   🚨 Navigazione a ritroso fallita dopo 5 tentativi. Tento ricaricamento radice strutturale...")
+            logger.warning("   -> Tentativo estremo su url_iniziale...")
             try:
-                logger.info("   -> Reset transazione server: vado alla radice dei servizi...")
-                page.goto("https://sister3.agenziaentrate.gov.it/Visure/SceltaServizio.do?tipo=/T/TM/VCVC_")
-                page.wait_for_load_state("networkidle")
-                time.sleep(1.5)
-                
-                logger.info(f"   -> Rigenerazione maschera pulita: vado a {url_iniziale}")
                 page.goto(url_iniziale)
-                page.wait_for_load_state("load")
-                page.wait_for_load_state("networkidle")
+                page.wait_for_load_state("load", timeout=5000)
+                page.wait_for_load_state("networkidle", timeout=5000)
                 time.sleep(2.5)
-            except Exception as e_goto:
-                logger.error(f"   🚨 Errore durante il ricaricamento radice di emergenza: {e_goto}")
+                if verifica_form_protetto():
+                    return
+            except Exception:
+                pass
             
-            raise SisterError("Browser de-sincronizzato: forzato ricaricamento radice d'emergenza per resettare lo stato applicativo.")
-            
-        raise SisterError("Impossibile ritornare alla maschera principale di inserimento dati.")
+        raise SisterError("Impossibile ritornare alla maschera principale. Struttura della pagina compromessa.")
 
     @staticmethod
     def _check_errori_sister(page, label: str):
