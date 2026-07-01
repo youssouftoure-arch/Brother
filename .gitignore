@@ -6,3 +6,4 @@ dist/
 *.spec
 .vscode/
 .env
+data/*
