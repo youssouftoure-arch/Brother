@@ -3,6 +3,7 @@ __pycache__/
 env/
 build/
 dist/
+Brother Environment/
 *.spec
 .vscode/
 .env

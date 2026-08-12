@@ -2,15 +2,20 @@
 import time
 import base64
 import random
+import re
+import unicodedata
 from config.settings import Settings
+from core.historical_workbook import HistoricalJob, PropertyResult
 from utils.logger import get_logger
 from openai import OpenAI
+import requests
 
 logger = get_logger("SisterClient")
 
 class SisterError(Exception): pass
 class ImmobileNonTrovato(SisterError): pass
 class ParticellaSoppressa(SisterError): pass
+class CaptchaServiceUnavailable(SisterError): pass
 
 DIZIONARIO_PROVINCE = {
     "AG": "AGRIGENTO", "AL": "ALESSANDRIA", "AN": "ANCONA", "AO": "AOSTA", "AR": "AREZZO", "AP": "ASCOLI PICENO",
@@ -32,6 +37,50 @@ DIZIONARIO_PROVINCE = {
 }
 
 class NavigatoreSister:
+    @staticmethod
+    def _normalizza_testo(value: str) -> str:
+        value = unicodedata.normalize("NFKD", str(value or ""))
+        value = "".join(char for char in value if not unicodedata.combining(char))
+        return re.sub(r"[^a-z0-9]+", "", value.lower())
+
+    @staticmethod
+    def _frame_con_selettore(page, selector: str, visible: bool = False):
+        for frame in list(page.frames):
+            try:
+                locator = frame.locator(selector)
+                if locator.count() and (not visible or locator.first.is_visible()):
+                    return frame
+            except Exception:
+                continue
+        return None
+
+    @staticmethod
+    def _digita(locator, value: str) -> None:
+        locator.click()
+        try:
+            locator.fill("")
+        except Exception:
+            pass
+        locator.type(str(value), delay=random.randint(100, 200))
+        NavigatoreSister._forza_evento_dom(locator)
+
+    @staticmethod
+    def _seleziona_label_o_valore(locator, desired: str) -> None:
+        options = locator.locator("option")
+        desired_norm = NavigatoreSister._normalizza_testo(desired)
+        for index in range(options.count()):
+            option = options.nth(index)
+            label = option.text_content() or ""
+            value = option.get_attribute("value") or ""
+            if desired_norm in {
+                NavigatoreSister._normalizza_testo(label),
+                NavigatoreSister._normalizza_testo(value),
+            }:
+                locator.select_option(value=value)
+                NavigatoreSister._forza_evento_dom(locator)
+                return
+        raise SisterError(f"Valore '{desired}' non presente nel menu a tendina.")
+
     @staticmethod
     def check_session() -> bool:
         return Settings.STATE_FILE.exists()
@@ -140,55 +189,98 @@ class NavigatoreSister:
 
         return target_frame
 
+
+
     @staticmethod
     def _risolvi_captcha_automatico(frame, chiave: str) -> str:
+        MAX_TENTATIVI = 3
+        TIMEOUT_SECONDI = 20
+
         try:
             img_locator = frame.locator("img[src*='captcha'], img[src*='Validazione'], img[src*='image'], img[src*='Display']").first
             if img_locator.count() == 0:
                 img_locator = frame.locator("img").first
-            
+
             img_bytes = img_locator.screenshot()
             base64_image = base64.b64encode(img_bytes).decode('utf-8')
-            
-            client = OpenAI(api_key=Settings.OPENAI_API_KEY)
-            response = client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {
-                                "type": "text", 
-                                "text": (
-                                    "Analizza questa immagine di testo distorto per l'accessibilità. "
-                                    "È una stringa casuale di caratteri (lettere e numeri) senza senso compiuto. "
-                                    "NON tentare di tradurla o convertirla in parole reali del dizionario. "
-                                    "Scrivi unicamente i caratteri esatti che vedi ordinati di seguito, "
-                                    "tutto in minuscolo, senza spazi, senza introduzioni e senza punteggiatura."
-                                )
-                            },
-                            {
-                                "type": "image_url",
-                                "image_url": {"url": f"data:image/png;base64,{base64_image}"}
+
+            # 🟢 Modello aggiornato: gemini-1.5 è stato ritirato (404 su tutti gli endpoint)
+            url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent"
+
+            payload = {
+                "contents": [{
+                    "parts": [
+                        {
+                            "text": (
+                                "Analizza questa immagine di testo distorto per l'accessibilità. "
+                                "È una stringa casuale di caratteri senza senso compiuto. "
+                                "Scrivi unicamente i caratteri esatti che vedi ordinati di seguito, "
+                                "tutto in minuscolo, senza spazi, senza introduzioni e senza punteggiatura."
+                            )
+                        },
+                        {
+                            "inline_data": {
+                                "mime_type": "image/png",
+                                "data": base64_image
                             }
-                        ]
-                    }
-                ],
-                max_tokens=15,
-                temperature=0.0
-            )
-            
-            testo_indovinato = response.choices[0].message.content.strip().lower()
-            logger.info(f"🤖 [GPT VISION] Codice analizzato per {chiave} -> Tentativo: '{testo_indovinato}'")
-            
+                        }
+                    ]
+                }],
+                "generationConfig": {
+                    "temperature": 0.0,
+                    "maxOutputTokens": 15
+                }
+            }
+
+            headers = {
+                "Content-Type": "application/json",
+                "x-goog-api-key": Settings.GEMINI_API_KEY
+            }
+
+            response = None
+            ultimo_errore = None
+
+            for tentativo in range(1, MAX_TENTATIVI + 1):
+                try:
+                    response = requests.post(url, headers=headers, json=payload, timeout=TIMEOUT_SECONDI)
+
+                    if response.status_code == 429:
+                        raise CaptchaServiceUnavailable("Quota o limite rateo della chiave Gemini API esaurito.")
+
+                    response.raise_for_status()
+                    break  # richiesta riuscita, esce dal loop di retry
+
+                except requests.exceptions.ReadTimeout as e:
+                    ultimo_errore = e
+                    logger.warning(
+                        f"⏱️ Timeout Gemini (tentativo {tentativo}/{MAX_TENTATIVI}) per {chiave}, "
+                        f"nuovo tentativo tra {2 * tentativo}s..."
+                    )
+                    if tentativo == MAX_TENTATIVI:
+                        raise
+                    time.sleep(2 * tentativo)
+
+            data = response.json()
+            testo_indovinato = data['candidates'][0]['content']['parts'][0]['text'].strip().lower()
+
+            logger.info(f"🤖 [GEMINI FLASH] Codice analizzato per {chiave} -> Tentativo: '{testo_indovinato}'")
+
             campo_testo = frame.locator(Settings.SEL_CAPTCHA_INPUT)
             campo_testo.fill(testo_indovinato)
             NavigatoreSister._forza_evento_dom(campo_testo)
             return testo_indovinato
-            
+
+        except CaptchaServiceUnavailable:
+            raise
+
         except Exception as e:
             logger.error(f"Errore durante la risoluzione AI del codice: {e}")
-            return "errore"
+            error_text = str(e).lower()
+            if "429" in error_text or "quota" in error_text:
+                raise CaptchaServiceUnavailable(
+                    "Vision non disponibile: quota o limite rateo della chiave Gemini API esaurito."
+                ) from e
+            raise SisterError(f"Impossibile leggere il codice di sicurezza con Gemini Vision: {e}") from e
 
     @staticmethod
     def _attendi_caricamento_captcha_page(page, comune="", foglio="", particella=""):
@@ -329,6 +421,354 @@ class NavigatoreSister:
         return NavigatoreSister._processa_ricerca_con_retry(page, comune, provincia, foglio, particella, "NCF", sub)
 
     @staticmethod
+    def _aggancia_form_ricerca_storica(page):
+        for tentativo in range(5):
+            frame = NavigatoreSister._frame_con_selettore(page, Settings.SEL_NCT_COMUNE)
+            if frame and frame.locator(Settings.SEL_NCT_FOGLIO).count() and frame.locator(Settings.SEL_NCT_PARTICELLA).count():
+                logger.info(f"   🎯 Form ricerca storica agganciato (tentativo {tentativo + 1}/5).")
+                return frame
+            time.sleep(1.0)
+        raise SisterError("Impossibile agganciare il form Comune/Foglio/Particella nei frame.")
+
+    @staticmethod
+    def _imposta_sezione(page, frame, section: str):
+        section_select = frame.locator(Settings.SEL_SECTION_DROPDOWN)
+        if not section:
+            # Sermide e Felonica non possiede una sezione: lascia il controllo neutro.
+            if section_select.count():
+                try:
+                    section_select.first.select_option(index=0)
+                    NavigatoreSister._forza_evento_dom(section_select.first)
+                except Exception:
+                    pass
+            return frame
+
+        def section_is_available() -> bool:
+            if not section_select.count():
+                return False
+            desired = NavigatoreSister._normalizza_testo(section)
+            for option_index in range(section_select.first.locator("option").count()):
+                option = section_select.first.locator("option").nth(option_index)
+                if desired in {
+                    NavigatoreSister._normalizza_testo(option.text_content()),
+                    NavigatoreSister._normalizza_testo(option.get_attribute("value")),
+                }:
+                    return True
+            return False
+
+        if not section_is_available():
+            choose_button = frame.locator(Settings.SEL_CHOOSE_SECTION_SUBMIT)
+            if not choose_button.count():
+                raise SisterError("Pulsante 'scegli la sezione' non trovato nel form.")
+            logger.info("   -> Click su 'scegli la sezione' per caricare l'elenco sezioni.")
+            choose_button.first.click()
+            try:
+                page.wait_for_load_state("load", timeout=5000)
+                page.wait_for_load_state("networkidle", timeout=5000)
+            except Exception:
+                pass
+            time.sleep(1.5)
+            # Il submit ricrea il DOM e rende non più valido il vecchio frame.
+            frame = NavigatoreSister._aggancia_form_ricerca_storica(page)
+            section_select = frame.locator(Settings.SEL_SECTION_DROPDOWN)
+
+        section_select = frame.locator(Settings.SEL_SECTION_DROPDOWN)
+        if not section_select.count():
+            raise SisterError("Il menu della sezione non è comparso dopo 'Scegli la sezione'.")
+        NavigatoreSister._seleziona_label_o_valore(section_select.first, section)
+        return frame
+
+    @staticmethod
+    def search_historical_property(page, job: HistoricalJob) -> PropertyResult:
+        """Esegue la ricerca catastale fino all'Elenco Immobili e ne legge la prima riga."""
+        frame = NavigatoreSister._aggancia_form_ricerca_storica(page)
+
+        comune = frame.locator(Settings.SEL_NCT_COMUNE)
+        current = comune.evaluate("el => el.options[el.selectedIndex] ? el.options[el.selectedIndex].text : ''")
+        if NavigatoreSister._normalizza_testo(current) != NavigatoreSister._normalizza_testo(job.comune):
+            logger.info(f"   -> Cambio comune: {job.comune.upper()}")
+            NavigatoreSister._seleziona_label_o_valore(comune, job.comune)
+            try:
+                page.wait_for_load_state("networkidle", timeout=5000)
+            except Exception:
+                pass
+            time.sleep(2.0)
+            # Il cambio comune può ricostruire completamente il frame.
+            frame = NavigatoreSister._aggancia_form_ricerca_storica(page)
+
+        frame = NavigatoreSister._imposta_sezione(page, frame, job.sezione)
+        NavigatoreSister._digita(frame.locator(Settings.SEL_NCT_FOGLIO), job.foglio)
+        time.sleep(random.uniform(0.4, 0.8))
+        NavigatoreSister._digita(frame.locator(Settings.SEL_NCT_PARTICELLA), job.particella)
+
+        sub = frame.locator(Settings.SEL_NCF_SUB)
+        if sub.count():
+            try:
+                sub.fill("")
+            except Exception:
+                pass
+
+        pausa = random.uniform(1.5, 2.2)
+        logger.info(f"   ⏳ Pausa riflessiva di {pausa:.2f}s prima di Ricerca...")
+        time.sleep(pausa)
+        search_button = frame.locator(Settings.SEL_SEARCH_SUBMIT)
+        if not search_button.count():
+            raise SisterError("Pulsante 'Ricerca' non trovato nel form catastale.")
+        search_button.first.click()
+
+        # La conferma compare soltanto quando la ricerca è stata fatta senza subalterno.
+        for _ in range(int(Settings.CAPTCHA_TIMEOUT_S * 2)):
+            NavigatoreSister._check_errori_sister(page, f"{job.comune} FG {job.foglio} PART {job.particella}")
+            confirm_frame = NavigatoreSister._frame_con_selettore(page, Settings.SEL_CONFIRM_SUBMIT, visible=True)
+            if confirm_frame:
+                logger.info("   -> Conferma dell'assenza del subalterno.")
+                confirm_frame.locator(Settings.SEL_CONFIRM_SUBMIT).first.click()
+                try:
+                    page.wait_for_load_state("networkidle", timeout=5000)
+                except Exception:
+                    pass
+                break
+            if NavigatoreSister._find_property_table(page):
+                break
+            time.sleep(0.5)
+
+        for _ in range(int(Settings.CAPTCHA_TIMEOUT_S * 2)):
+            NavigatoreSister._check_errori_sister(page, f"{job.comune} FG {job.foglio} PART {job.particella}")
+            if NavigatoreSister._find_property_table(page):
+                break
+            time.sleep(0.5)
+        result = NavigatoreSister.extract_first_property(page)
+        return result
+
+    @staticmethod
+    def _find_property_table(page):
+        required = {"foglio", "particella", "qualita"}
+        for frame in list(page.frames):
+            try:
+                tables = frame.locator("table")
+                for index in range(tables.count()):
+                    table = tables.nth(index)
+                    header_texts = table.locator("tr").first.locator("th, td").all_inner_texts()
+                    normalized = {NavigatoreSister._normalizza_testo(item) for item in header_texts}
+                    if required.issubset(normalized):
+                        return table
+            except Exception:
+                continue
+        return None
+
+    @staticmethod
+    def extract_first_property(page) -> PropertyResult:
+        table = NavigatoreSister._find_property_table(page)
+        if table is None:
+            raise SisterError("Tabella 'Elenco Immobili' non trovata o incompleta.")
+
+        rows = table.locator("tr")
+        headers = [NavigatoreSister._normalizza_testo(value) for value in rows.first.locator("th, td").all_inner_texts()]
+        values = None
+        for index in range(1, rows.count()):
+            cells = rows.nth(index).locator("td").all_inner_texts()
+            if cells and any(str(cell).strip() for cell in cells):
+                values = [re.sub(r"\s+", " ", str(cell)).strip() for cell in cells]
+                break
+        if values is None:
+            raise ImmobileNonTrovato("La tabella Elenco Immobili non contiene righe catastali.")
+
+        return NavigatoreSister._property_result_from_cells(headers, values)
+
+    @staticmethod
+    def _property_result_from_cells(headers: list[str], values: list[str]) -> PropertyResult:
+        headers = [NavigatoreSister._normalizza_testo(value) for value in headers]
+        def value_for(*aliases):
+            for alias in aliases:
+                normalized_alias = NavigatoreSister._normalizza_testo(alias)
+                if normalized_alias in headers:
+                    position = headers.index(normalized_alias)
+                    return values[position] if position < len(values) else ""
+            return ""
+
+        return PropertyResult(
+            sub=value_for("Sub"),
+            ha=value_for("ha"),
+            are=value_for("are"),
+            ca=value_for("ca", "cent."),
+            qualita=value_for("Qualità", "Qualità terreno categoria"),
+            reddito_dominicale=value_for("Reddito dominicale", "Reddito Dom."),
+            reddito_agrario=value_for("Reddito agrario", "Reddito Agr."),
+        )
+
+    @staticmethod
+    def extract_owners(page) -> list[str]:
+        body = page.content().lower()
+        zero_markers = (
+            "nessun intestat",
+            "non risultano intestat",
+            "intestatari: 0",
+            "intestati: 0",
+            "nessun soggetto",
+            "nessuna corrispondenza trovata",
+        )
+        if any(marker in body for marker in zero_markers):
+            return []
+
+        owner_markers = ("intestat", "codicefiscale", "diritto", "quota", "nominativo")
+        for frame in list(page.frames):
+            try:
+                tables = frame.locator("table")
+                for table_index in range(tables.count()):
+                    table = tables.nth(table_index)
+                    table_norm = NavigatoreSister._normalizza_testo(table.inner_text())
+                    if not any(marker in table_norm for marker in owner_markers):
+                        continue
+                    owners = []
+                    rows = table.locator("tr")
+                    for row_index in range(rows.count()):
+                        row = rows.nth(row_index)
+                        if not row.locator("td").count():
+                            continue
+                        cell_norms = {
+                            NavigatoreSister._normalizza_testo(cell)
+                            for cell in row.locator("th, td").all_inner_texts()
+                        }
+                        header_labels = {"intestatario", "nominativo", "codicefiscale", "diritto", "quota"}
+                        if row.locator("th").count() or len(cell_norms & header_labels) >= 2:
+                            continue
+                        text = re.sub(r"\s+", " ", row.inner_text()).strip()
+                        if text:
+                            owners.append(text)
+                    if owners:
+                        return owners
+            except Exception:
+                continue
+        raise SisterError("Pagina Intestati caricata, ma nessuna tabella o messaggio di esito è riconoscibile.")
+
+    @staticmethod
+    def open_owners(page) -> list[str]:
+        frame = NavigatoreSister._frame_con_selettore(page, Settings.SEL_OWNERS_SUBMIT, visible=True)
+        if not frame:
+            raise SisterError("Pulsante 'Intestati' non trovato nell'Elenco Immobili.")
+        frame.locator(Settings.SEL_OWNERS_SUBMIT).first.click()
+        try:
+            page.wait_for_load_state("networkidle", timeout=5000)
+        except Exception:
+            pass
+        time.sleep(1.5)
+        last_error = None
+        for _ in range(int(Settings.CAPTCHA_TIMEOUT_S * 2)):
+            try:
+                return NavigatoreSister.extract_owners(page)
+            except SisterError as exc:
+                last_error = exc
+                time.sleep(0.5)
+        raise last_error or SisterError("Pagina Intestati non riconosciuta.")
+
+    @staticmethod
+    def _click_indietro(page) -> bool:
+        frame = NavigatoreSister._frame_con_selettore(page, Settings.SEL_BUTTON_INDIETRO, visible=True)
+        if not frame:
+            return False
+        frame.locator(Settings.SEL_BUTTON_INDIETRO).first.click()
+        try:
+            page.wait_for_load_state("networkidle", timeout=4000)
+        except Exception:
+            pass
+        time.sleep(1.5)
+        return True
+
+    @staticmethod
+    def _select_historical_analytical(page) -> None:
+        for frame in list(page.frames):
+            try:
+                # L'HTML Sister riutilizza erroneamente id="tipoVisura" per tutti
+                # i radio: cliccare la label Analitica può quindi attivare Completa.
+                analytical = frame.locator("input[type='radio'][name='tipoVisura'][value='3']")
+                if analytical.count() and analytical.first.is_visible():
+                    analytical.first.check()
+                    NavigatoreSister._forza_evento_dom(analytical.first)
+                    logger.info("   -> Visura Storica Analitica selezionata (tipoVisura=3).")
+                    return
+            except Exception:
+                continue
+        raise SisterError("Radio 'Storica - Analitica' non trovato nella pagina Visura per immobile.")
+
+    @staticmethod
+    def _conferma_captcha_corrente(page, chiave: str) -> None:
+        captcha_frame = NavigatoreSister._attendi_caricamento_captcha_page(page)
+        if not captcha_frame:
+            raise SisterError("Pagina di inoltro della visura storica non comparsa.")
+        for tentativo in range(1, 3):
+            if tentativo > 1:
+                captcha_frame = NavigatoreSister._attendi_caricamento_captcha_page(page)
+                if not captcha_frame:
+                    break
+            if captcha_frame.locator(Settings.SEL_CAPTCHA_INPUT).count():
+                NavigatoreSister._risolvi_captcha_automatico(captcha_frame, chiave)
+                time.sleep(0.1)
+            else:
+                logger.info("   🚀 Pagina senza captcha: inoltro diretto dopo la pausa di sicurezza.")
+                time.sleep(1.5)
+            captcha_frame.locator(Settings.SEL_FORWARD_SUBMIT).first.click()
+            try:
+                page.wait_for_load_state("networkidle", timeout=4000)
+            except Exception:
+                pass
+            body = page.content().lower()
+            if "error 500" in body or "nullpointer" in body or "eccezione" in body:
+                raise SisterError("Errore 500 durante l'inoltro della visura storica.")
+            if not captcha_frame.locator(Settings.SEL_CAPTCHA_INPUT).count():
+                logger.info(f"   ✅ Inoltro visura storica accettato [{tentativo}/2].")
+                return
+            logger.warning(f"   ⚠️ Captcha storico non accettato [{tentativo}/2].")
+        raise SisterError("Codice di sicurezza della visura storica errato per 2 volte.")
+
+    @staticmethod
+    def request_historical_analytical(page, job: HistoricalJob) -> None:
+        # Si parte dalla pagina Intestati: un Indietro riporta all'Elenco Immobili.
+        if not NavigatoreSister._click_indietro(page):
+            raise SisterError("Impossibile tornare dagli Intestati all'Elenco Immobili.")
+        frame = NavigatoreSister._frame_con_selettore(page, Settings.SEL_HISTORICAL_REPORT_SUBMIT, visible=True)
+        if not frame:
+            raise SisterError("Pulsante 'Visura Per Immobile' non trovato.")
+        frame.locator(Settings.SEL_HISTORICAL_REPORT_SUBMIT).first.click()
+        try:
+            page.wait_for_load_state("networkidle", timeout=5000)
+        except Exception:
+            pass
+        time.sleep(1.5)
+        NavigatoreSister._select_historical_analytical(page)
+        NavigatoreSister._conferma_captcha_corrente(
+            page, f"{job.comune} FG {job.foglio} PART {job.particella}"
+        )
+
+    @staticmethod
+    def return_to_historical_search(page, initial_url: str) -> None:
+        logger.info("🔄 Ritorno alla pagina iniziale Ricerca per immobile...")
+        time.sleep(1.5)
+        for step in range(1, 6):
+            try:
+                frame = NavigatoreSister._frame_con_selettore(page, Settings.SEL_SEARCH_SUBMIT)
+                if frame and frame.locator(Settings.SEL_NCT_FOGLIO).count():
+                    logger.info("✅ Form di ricerca iniziale nuovamente pronto.")
+                    return
+            except Exception:
+                pass
+            logger.info(f"   -> Ritorno strutturale, passo {step}/5.")
+            if not NavigatoreSister._click_indietro(page):
+                try:
+                    page.go_back()
+                    time.sleep(2.0)
+                except Exception:
+                    break
+
+        logger.warning("   -> Percorso Indietro incompleto; ripristino tramite URL iniziale.")
+        page.goto(initial_url)
+        try:
+            page.wait_for_load_state("networkidle", timeout=6000)
+        except Exception:
+            pass
+        time.sleep(2.5)
+        NavigatoreSister._aggancia_form_ricerca_storica(page)
+
+    @staticmethod
     def torna_al_form(page, url_iniziale: str = None):
         """
         Riporta il browser alla maschera principale di inserimento dati.
@@ -463,6 +903,10 @@ class NavigatoreSister:
             raise ImmobileNonTrovato(label)
         if "soppressa" in body or "soppresso" in body:
             raise ParticellaSoppressa(label)
+        if "error 500" in body or "nullpointer" in body or "eccezione" in body:
+            raise SisterError(f"Errore 500 Sister durante la ricerca: {label}")
+        if "reperimento dei dati" in body or "problemi in fase" in body:
+            raise SisterError(f"Mancato reperimento dei dati in tempo reale: {label}")
 
     @staticmethod
     def recupera_richieste_differite(page, cache):

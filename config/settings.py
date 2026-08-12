@@ -38,6 +38,7 @@ class Settings:
     # =========================================================================
     # AUTENTICAZIONE ED ENTI ESTERNI
     # =========================================================================
+    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
 
     # =========================================================================
@@ -55,7 +56,10 @@ class Settings:
     INPUT_DIR: Path = DATA_DIR / "input"
     INPUT_EXCEL: Path = INPUT_DIR / "piano particellare.xlsx"
     CACHE_DIR: Path = DATA_DIR / "cache"
-    OUTPUT_DIR: Path = DATA_DIR / "output_tree"
+    OUTPUT_DIR: Path = BASE_DIR / "output"
+    DESTINATION_EXCEL: Path = OUTPUT_DIR / "destinazione.xlsx"
+    HISTORICAL_DIR: Path = OUTPUT_DIR / "storica"
+    HISTORICAL_DATA_CACHE_DIR: Path = CACHE_DIR / "dati_storici"
     ISTAT_CSV: Path = Path("utils/Elenco-comuni-italiani.csv")
     STATE_FILE: Path = BASE_DIR / "scraper" / "state" / "state.json"
     # Re-routing dinamico dei log nella cartella roaming utente (Windows: %APPDATA%)
@@ -114,6 +118,15 @@ class Settings:
     SEL_NCF_PARTICELLA: str = "input[name='particella1']"
     SEL_NCF_SUB: str = "input[name='subalterno1']"
     SEL_NCF_SUBMIT: str = "input[type='submit'][name='scelta'][value='Visura']"
+
+    # --- Ricerca storica per immobile ---
+    SEL_CHOOSE_SECTION_SUBMIT: str = "input[type='submit'][name='selSezione']"
+    SEL_SECTION_DROPDOWN: str = "select[name='sezione']"
+    SEL_SEARCH_SUBMIT: str = "input[type='submit'][value='Ricerca'], button:has-text('Ricerca')"
+    SEL_CONFIRM_SUBMIT: str = "input[type='submit'][value='Conferma'], button:has-text('Conferma')"
+    SEL_OWNERS_SUBMIT: str = "input[type='submit'][value='Intestati'], button:has-text('Intestati')"
+    SEL_HISTORICAL_REPORT_SUBMIT: str = "input[type='submit'][value*='Visura Per Immobile' i], button:has-text('Visura Per Immobile')"
+    SEL_FORWARD_SUBMIT: str = "input[type='submit'][value='Inoltra'], button:has-text('Inoltra')"
 
     # =========================================================================
     # SELETTORI VALIDAZIONE E SCARICAMENTO (SCHERMATA CAPTCHA)

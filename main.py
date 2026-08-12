@@ -10,18 +10,18 @@ if os.name == 'nt': # Se siamo su Windows
     local_appdata = os.getenv("LOCALAPPDATA", os.path.expanduser("~/AppData/Local"))
     os.environ["PLAYWRIGHT_BROWSERS_PATH"] = os.path.join(local_appdata, "ms-playwright")
 
-def inizializza_playwright_blindato():
+def _ensure_playwright_browsers():
     """
     Controlla e installa i binari di Chromium in modo totalmente isolato.
     Garantisce l'immunità totale da Fork-Bomb negli eseguibili PyInstaller.
     """
     # 1. Controlliamo se siamo dentro l'EXE congelato
-    is_frozen = getattr(sys, 'frozen', False)
+    is_frozen = bool(getattr(sys, '_MEIPASS', None))
     
     if is_frozen:
         # 🚨 SICUREZZA ASSOLUTA: Dentro l'EXE non usiamo MAI sys.executable
         meipass = getattr(sys, '_MEIPASS', '')
-        driver_cmd = os.path.join(meipass, "playwright", "driver", "playwright.cmd")
+        driver_cmd = os.path.normpath(os.path.join(meipass, "playwright", "driver", "playwright.cmd"))
         
         # Eseguiamo il setup SOLO se il driver interno esiste fisicamente
         if os.path.exists(driver_cmd):
@@ -45,6 +45,11 @@ def inizializza_playwright_blindato():
             )
         except Exception:
             pass
+
+
+def inizializza_playwright_blindato():
+    """Nome storico mantenuto per la GUI e per gli eseguibili già configurati."""
+    return _ensure_playwright_browsers()
 
 
 def main():

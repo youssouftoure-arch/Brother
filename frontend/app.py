@@ -257,7 +257,7 @@ class SisterAutomationApp(ctk.CTk):
 
         if not messagebox.askyesno(
             "Conferma stop",
-            "Vuoi interrompere l'esecuzione e passare alla fase finale di folder building?",
+            "Vuoi interrompere l'esecuzione e consolidare i dati e le visure già raccolti?",
         ):
             return
 
